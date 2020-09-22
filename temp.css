@@ -1,0 +1,10 @@
+body {
+    background: url(./DSC00190.jpg);
+    background-size: cover;
+    color: #2d2d2d;
+    font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 22px;
+}
