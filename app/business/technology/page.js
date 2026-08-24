@@ -5,11 +5,20 @@ import styles from "./page.module.css";
 export const metadata = {
   title: "テクノロジー事業",
   description:
-    "株式会社AntyのITシステム・ソフトウェアプロダクト事業について。コンサルティング、開発、開発支援を行っています。",
+    "株式会社AntyのITシステム・ソフトウェアプロダクト事業について。技術顧問・アドバイザリー、コンサルティング、開発、開発支援を行っています。",
   alternates: { canonical: "/business/technology/" },
 };
 
 const services = [
+  {
+    title: "技術顧問・アドバイザリー",
+    text: "継続的に関わり、技術と経営の判断を支えます。",
+    items: [
+      "技術戦略・アーキテクチャの相談",
+      "経営判断における技術的なセカンドオピニオン",
+      "週次・隔週の定例とチャットでの随時相談",
+    ],
+  },
   {
     title: "コンサルティング",
     text: "つくる前の判断を一緒に整理します。",
@@ -20,22 +29,33 @@ const services = [
     ],
   },
   {
-    title: "開発",
-    text: "設計から実装、運用までを担当します。",
+    title: "開発・開発支援",
+    text: "設計から実装まで、必要なかたちで手を動かします。",
     items: [
       "Webサービス・業務システムの開発",
-      "ECサイト、ウェブサイトの構築",
-      "リリース後の運用と改善",
-    ],
-  },
-  {
-    title: "開発支援",
-    text: "お客さまのチームに入って開発を進めます。",
-    items: [
-      "開発チームへの参画",
-      "設計・コードレビュー",
+      "開発チームへの参画、設計・コードレビュー",
       "開発の進め方や体制づくりの相談",
     ],
+  },
+];
+
+// 担当者の経歴。個人名は出さず、経験の内容だけを記載しています。
+const strengths = [
+  {
+    title: "経営と技術の橋渡し",
+    text: "事業会社の役員と、複数社の技術顧問の両方を務めています。経営判断と技術判断のあいだを翻訳し、経営層と現場エンジニアのあいだにあるギャップを埋める動き方ができます。",
+  },
+  {
+    title: "技術戦略・アーキテクチャ判断",
+    text: "支援する立場と、自分でつくる立場の両方を行き来してきました。事業のフェーズに合った技術選定、技術投資判断、技術ロードマップの作成に対応します。",
+  },
+  {
+    title: "エンジニア組織の立ち上げ・育成",
+    text: "ゼロからの組織立ち上げ、エンジニア採用、ジュニアからリーダー層までの育成とメンタリング、マネジメント施策の相談まで横断的に対応します。",
+  },
+  {
+    title: "生成AIを前提とした開発体制",
+    text: "生成AIをフル活用したプロダクト開発を実践しています。AIエージェントを並列に動かす少人数開発の運用知見があります。",
   },
 ];
 
@@ -59,12 +79,13 @@ const flow = [
 ];
 
 const areas = [
-  "Webアプリケーション",
-  "ECサイト",
-  "業務システム",
-  "クラウド上のシステム構築",
-  "既存システムの改善",
   "技術顧問・アドバイザリー",
+  "技術戦略・技術選定",
+  "クラウドアーキテクチャの設計とレビュー",
+  "Webアプリケーション・プロダクト開発",
+  "エンジニア組織の立ち上げと育成",
+  "生成AIを前提とした開発体制づくり",
+  "エンジニア向けプロダクト・イベントの企画支援",
 ];
 
 export default function Technology() {
@@ -73,7 +94,7 @@ export default function Technology() {
       <PageHeader
         eyebrow="Technology"
         title="ITシステム・ソフトウェア開発事業"
-        lead="ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。"
+        lead="技術顧問・アドバイザリーを中心に、ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。"
       />
 
       <section className="section">
@@ -81,7 +102,7 @@ export default function Technology() {
           <span className="eyebrow">Services</span>
           <h2 className="sectionTitle">できること</h2>
           <p className="lead">
-            企画段階のご相談から、開発チームに入っての支援まで、必要な工程に必要なかたちで関わります。
+            継続的な顧問契約から、単発のご相談、開発チームに入っての支援まで、必要な工程に必要なかたちで関わります。
           </p>
           <div className={styles.serviceGrid}>
             {services.map((service) => (
@@ -101,6 +122,33 @@ export default function Technology() {
 
       <section className="section section--alt">
         <div className="container">
+          <span className="eyebrow">Experience</span>
+          <h2 className="sectionTitle">これまでの経験</h2>
+          <div className={styles.experience}>
+            <p>
+              国内SIerで金融系システムの開発に携わったのち、自社クラウドサービスのアーキテクチャ設計、アプリケーション開発、開発チームのマネジメントを担当。その後、外資系クラウドベンダーの日本法人でソリューションアーキテクトとして、スタートアップから大企業まで、さまざまな業種・規模のクラウドアーキテクチャ設計と課題解決の支援に従事しました。スタートアップの取締役CTOを経て、現在は事業会社の役員や技術責任者を務めながら、複数社の技術顧問・アドバイザリーを担当しています。
+            </p>
+            <p>
+              顧問として支援してきたのは、エンジニア向けのプロダクトやサービスを展開する事業者、クラウドインフラ領域の事業者、エンジニアリングを本業としない企業の新規事業など。創業初期から伴走するケースが多く、組織規模は数人から数十人が中心です。技術的な壁打ち相手として入り、事業企画や組織の課題、人材育成、経営判断への助言へと関わりが広がっていく形が多くなっています。
+            </p>
+            <p>
+              このほか、サーバーレスやクラウドに関する技術書の執筆（単著2冊、共著1冊）、技術カンファレンスでの登壇、企業内での勉強会・講演なども継続しています。
+            </p>
+          </div>
+
+          <div className={styles.strengthGrid}>
+            {strengths.map((strength) => (
+              <div key={strength.title} className={styles.strength}>
+                <h3>{strength.title}</h3>
+                <p>{strength.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
           <span className="eyebrow">Areas</span>
           <h2 className="sectionTitle">対応領域</h2>
           <ul className={styles.areaList}>
@@ -111,7 +159,7 @@ export default function Technology() {
         </div>
       </section>
 
-      <section className="section">
+      <section className="section section--alt">
         <div className="container">
           <span className="eyebrow">Flow</span>
           <h2 className="sectionTitle">ご相談の流れ</h2>
