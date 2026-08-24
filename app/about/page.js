@@ -7,40 +7,40 @@ import { site } from "../site-config";
 export const metadata = {
   title: "会社概要",
   description:
-    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立、神奈川県横浜市。ハンドメイドアクセサリー事業とITシステム・ソフトウェア開発事業を営んでいます。",
+    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立、神奈川県横浜市。ITシステム・ソフトウェア開発事業とハンドメイドアクセサリー事業を営んでいます。",
   alternates: { canonical: "/about/" },
 };
 
 export default function About() {
+  // 値が入っている項目だけを表示する（資本金などは site-config.js に追記すると出ます）
+  const rows = [
+    { term: "名称", value: `${site.name}（英語表記: ${site.nameEn}）` },
+    { term: "所在地", value: site.address.full },
+    { term: "設立", value: site.foundedLabel },
+    { term: "資本金", value: site.capital },
+    { term: "代表取締役", value: site.ceo },
+    { term: "法人番号", value: site.corporateNumber },
+    { term: "決算期", value: site.fiscalYearEnd },
+    { term: "電話番号", value: site.phone },
+  ].filter((row) => row.value);
+
   return (
     <>
       <PageHeader
         eyebrow="About us"
         title="会社概要"
-        lead="2021年、横浜で設立しました。ものづくりとソフトウェア開発の両方を手がけています。"
+        lead="2021年2月に設立した、横浜の会社です。ITシステム・ソフトウェアの開発と、ハンドメイドアクセサリーの製造・販売を行っています。"
       />
 
       <section className="section">
         <div className="container">
           <dl className={styles.profile}>
-            <div className={styles.row}>
-              <dt>名称</dt>
-              <dd>
-                {site.name}（英語表記: {site.nameEn}）
-              </dd>
-            </div>
-            <div className={styles.row}>
-              <dt>設立</dt>
-              <dd>{site.foundedLabel}</dd>
-            </div>
-            <div className={styles.row}>
-              <dt>代表取締役</dt>
-              <dd>{site.ceo}</dd>
-            </div>
-            <div className={styles.row}>
-              <dt>所在地</dt>
-              <dd>{site.address.full}</dd>
-            </div>
+            {rows.map((row) => (
+              <div key={row.term} className={styles.row}>
+                <dt>{row.term}</dt>
+                <dd>{row.value}</dd>
+              </div>
+            ))}
             <div className={styles.row}>
               <dt>お問い合わせ</dt>
               <dd>
@@ -66,16 +66,16 @@ export default function About() {
           <span className="eyebrow">Business</span>
           <h2 className="sectionTitle">事業紹介</h2>
           <div className={styles.businessLinks}>
-            <Link href="/business/handmade/">
-              <strong>ハンドメイドアクセサリー事業 →</strong>
-              <span>
-                アクセサリーの企画・デザインから製造、オンラインでの販売まで。
-              </span>
-            </Link>
             <Link href="/business/technology/">
               <strong>ITシステム・ソフトウェア開発事業 →</strong>
               <span>
                 コンサルティング、開発、開発支援。企画段階からのご相談も承ります。
+              </span>
+            </Link>
+            <Link href="/business/handmade/">
+              <strong>ハンドメイドアクセサリー事業 →</strong>
+              <span>
+                アクセサリーの企画・デザインから製造、オンラインでの販売まで。
               </span>
             </Link>
           </div>
@@ -84,7 +84,7 @@ export default function About() {
 
       <ContactCta
         title="お問い合わせ"
-        text="事業に関するご相談、取材のご依頼などはこちらから。"
+        text="事業に関するご相談、お取引の確認などはこちらから。"
       />
     </>
   );

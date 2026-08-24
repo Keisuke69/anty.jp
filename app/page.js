@@ -8,14 +8,10 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div>
-            <h1 className={styles.heroTitle}>
-              <span>手でつくるものと、</span>
-              <span>
-                <em>コードでつくるもの</em>。
-              </span>
-            </h1>
+            <span className={styles.heroEyebrow}>{site.nameEn}</span>
+            <h1 className={styles.heroTitle}>{site.name}</h1>
             <p className={styles.heroText}>
-              株式会社Antyは、ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトの開発という、2つの事業を営んでいます。
+              神奈川県横浜市の会社です。ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトの開発という、2つの事業を営んでいます。
             </p>
             <div className={styles.heroActions}>
               <Link className="button" href="/contact/">
@@ -43,26 +39,10 @@ export default function Home() {
           <span className="eyebrow">Business</span>
           <h2 className="sectionTitle">2つの事業</h2>
           <p className="lead">
-            扱うものは違いますが、どちらも企画から手を動かすところまで自社で担っています。
+            それぞれ独立した事業として運営しています。
           </p>
 
           <div className={styles.businessGrid}>
-            <Link className={styles.businessCard} href="/business/handmade/">
-              <span className={`${styles.cardTag} ${styles.cardTagHandmade}`}>
-                Handmade
-              </span>
-              <h3>ハンドメイドアクセサリー</h3>
-              <p>
-                手仕事でつくるアクセサリーを、企画から製造、販売まで自社で行っています。オンラインマーケットのminneとCreemaで販売中です。
-              </p>
-              <ul className={styles.cardServices}>
-                <li>アクセサリー・装身具の企画とデザイン</li>
-                <li>製造と品質の管理</li>
-                <li>オンラインでの販売、卸のご相談</li>
-              </ul>
-              <span className={styles.cardMore}>事業について →</span>
-            </Link>
-
             <Link className={styles.businessCard} href="/business/technology/">
               <span className={`${styles.cardTag} ${styles.cardTagTech}`}>
                 Technology
@@ -80,41 +60,33 @@ export default function Home() {
                 事業について →
               </span>
             </Link>
+
+            <Link className={styles.businessCard} href="/business/handmade/">
+              <span className={`${styles.cardTag} ${styles.cardTagHandmade}`}>
+                Handmade
+              </span>
+              <h3>ハンドメイドアクセサリー</h3>
+              <p>
+                手仕事でつくるアクセサリーを、企画から製造、販売まで自社で行っています。オンラインマーケットのminneとCreemaで販売中です。
+              </p>
+              <ul className={styles.cardServices}>
+                <li>アクセサリー・装身具の企画とデザイン</li>
+                <li>製造と品質の管理</li>
+                <li>オンラインでの販売、卸のご相談</li>
+              </ul>
+              <span className={styles.cardMore}>事業について →</span>
+            </Link>
           </div>
         </div>
       </section>
 
       <section className="section section--alt">
-        <div className="container">
-          <span className="eyebrow">Online shop</span>
-          <h2 className="sectionTitle">アクセサリーの購入</h2>
-          <p className="lead">
-            商品は以下のオンラインマーケットで販売しています。在庫や新作の情報は各ページをご覧ください。
-          </p>
-          <div className={styles.shopGrid}>
-            {site.shops.map((shop) => (
-              <a
-                key={shop.url}
-                className={styles.shopCard}
-                href={shop.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className={styles.shopName}>{shop.name} ↗</span>
-                <span className={styles.shopNote}>{shop.description}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
         <div className={`container ${styles.aboutRow}`}>
           <div>
             <span className="eyebrow">About</span>
             <h2 className="sectionTitle">会社概要</h2>
             <p className="lead">
-              2021年、横浜で設立しました。ものづくりとソフトウェア開発の両方を、少人数で手がけています。
+              2021年2月に設立した、横浜の会社です。
             </p>
             <p style={{ marginTop: "24px" }}>
               <Link className="button button--ghost" href="/about/">
@@ -145,12 +117,36 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section">
+        <div className="container">
+          <span className="eyebrow">Online shop</span>
+          <h2 className="sectionTitle">アクセサリーの購入</h2>
+          <p className="lead">
+            商品は以下のオンラインマーケットで販売しています。在庫や新作の情報は各ページをご覧ください。
+          </p>
+          <div className={styles.shopGrid}>
+            {site.shops.map((shop) => (
+              <a
+                key={shop.url}
+                className={styles.shopCard}
+                href={shop.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className={styles.shopName}>{shop.name} ↗</span>
+                <span className={styles.shopNote}>{shop.description}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className={styles.ctaSection}>
         <div className="container">
           <div className={styles.cta}>
             <h2>ご相談・お問い合わせ</h2>
             <p>
-              商品や卸のこと、システム開発や技術支援のこと。どちらの事業についても、メールでお問い合わせいただけます。
+              システム開発や技術支援のこと、商品や卸のこと。どちらの事業についても、メールでお問い合わせいただけます。
             </p>
             <Link className="button" href="/contact/">
               お問い合わせページへ

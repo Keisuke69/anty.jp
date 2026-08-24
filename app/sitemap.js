@@ -4,8 +4,8 @@ export const dynamic = "force-static";
 
 const paths = [
   "/",
-  "/business/handmade/",
   "/business/technology/",
+  "/business/handmade/",
   "/about/",
   "/contact/",
 ];
