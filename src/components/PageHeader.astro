@@ -1,0 +1,13 @@
+---
+import styles from "./PageHeader.module.css";
+
+const { eyebrow, title, lead } = Astro.props;
+---
+
+<div class={styles.header}>
+  <div class="container">
+    {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+    <h1 class={styles.title}>{title}</h1>
+    {lead && <p class={styles.lead}>{lead}</p>}
+  </div>
+</div>

@@ -1,0 +1,160 @@
+---
+import Base from "../layouts/Base.astro";
+import styles from "../styles/home.module.css";
+import { site } from "../site-config.js";
+---
+
+<Base path="/">
+  <link
+    slot="head"
+    rel="preload"
+    href="/images/handmade-accessories.jpg"
+    as="image"
+    fetchpriority="high"
+  />
+
+  <section class={styles.hero}>
+    <div class={`container ${styles.heroInner}`}>
+      <div>
+        <span class={styles.heroEyebrow}>{site.nameEn}</span>
+        <h1 class={styles.heroTitle}>{site.name}</h1>
+        <p class={styles.heroText}>
+          ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトの開発という、2つの事業を営んでいます。
+        </p>
+        <div class={styles.heroActions}>
+          <a class="button" href="/contact/">お問い合わせ</a>
+          <a class="button button--ghost" href="/about/">会社概要を見る</a>
+        </div>
+      </div>
+      <figure class={styles.heroFigure}>
+        <img
+          src="/images/handmade-accessories.jpg"
+          alt="Antyのハンドメイドアクセサリー（パールとゴールドのピアス）"
+          width="1616"
+          height="1080"
+          fetchpriority="high"
+        />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <span class="eyebrow">Business</span>
+      <h2 class="sectionTitle">2つの事業</h2>
+      <p class="lead">それぞれ独立した事業として運営しています。</p>
+
+      <div class={styles.businessGrid}>
+        <a class={styles.businessCard} href="/business/handmade/">
+          <span class={`${styles.cardTag} ${styles.cardTagHandmade}`}>
+            Handmade
+          </span>
+          <h3>ハンドメイドアクセサリー</h3>
+          <p>
+            アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。イベント出展やポップアップストアでの対面販売が中心です。
+          </p>
+          <ul class={styles.cardServices}>
+            <li>左右で形の違うアシンメトリーな耳飾り</li>
+            <li>ネックレス、ヘアアクセサリー、バッグチャーム</li>
+            <li>イベントやオンラインでの販売、卸のご相談</li>
+          </ul>
+          <span class={styles.cardMore}>事業について →</span>
+        </a>
+
+        <a class={styles.businessCard} href="/business/technology/">
+          <span class={`${styles.cardTag} ${styles.cardTagTech}`}>
+            Technology
+          </span>
+          <h3>ITシステム・ソフトウェア開発</h3>
+          <p>
+            技術顧問・アドバイザリーを中心に、ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。
+          </p>
+          <ul class={styles.cardServices}>
+            <li>技術顧問・アドバイザリー</li>
+            <li>Webサービス、ECサイトなどの設計・開発</li>
+            <li>開発体制づくりの支援</li>
+          </ul>
+          <span class={`${styles.cardMore} ${styles.cardMoreTech}`}>
+            事業について →
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Where to buy</span>
+      <h2 class="sectionTitle">アクセサリーの購入</h2>
+      <p class="lead">
+        イベントへの出展やポップアップストアでの対面販売が中心です。出展の予定はInstagramでお知らせしています。オンラインマーケットでも販売しています。
+      </p>
+      <div class={styles.shopGrid}>
+        <a
+          class={`${styles.shopCard} ${styles.shopCardPrimary}`}
+          href={site.instagram.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class={styles.shopName}>Instagram ↗</span>
+          <span class={styles.shopNote}>{site.instagram.description}</span>
+        </a>
+        {
+          site.shops.map((shop) => (
+            <a
+              class={styles.shopCard}
+              href={shop.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class={styles.shopName}>{shop.name} ↗</span>
+              <span class={styles.shopNote}>{shop.description}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class={`container ${styles.aboutRow}`}>
+      <div>
+        <span class="eyebrow">About</span>
+        <h2 class="sectionTitle">会社概要</h2>
+        <p style="margin-top: 24px">
+          <a class="button button--ghost" href="/about/">詳しい会社概要</a>
+        </p>
+      </div>
+      <dl class={styles.factList}>
+        <div class={styles.factRow}>
+          <dt>名称</dt>
+          <dd>{site.name}（{site.nameEn}）</dd>
+        </div>
+        <div class={styles.factRow}>
+          <dt>設立</dt>
+          <dd>{site.foundedLabel}</dd>
+        </div>
+        <div class={styles.factRow}>
+          <dt>代表取締役</dt>
+          <dd>{site.ceo}</dd>
+        </div>
+        <div class={styles.factRow}>
+          <dt>所在地</dt>
+          <dd>{site.address.full}</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class={styles.ctaSection}>
+    <div class="container">
+      <div class={styles.cta}>
+        <h2>ご相談・お問い合わせ</h2>
+        <p>
+          商品や卸のこと、システム開発や技術支援のこと。どちらの事業についても、メールでお問い合わせいただけます。
+        </p>
+        <a class="button" href="/contact/">お問い合わせページへ</a>
+      </div>
+    </div>
+  </section>
+</Base>
