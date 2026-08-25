@@ -10,10 +10,8 @@ export const site = {
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
   ceo: "西谷 愛",
-  // 以下は値を入れると会社概要ページに自動で表示されます。空のままなら行ごと非表示。
-  // 取引審査や与信のときに見られる項目です。
   capital: "1,000,000円",
-  corporateNumber: "",
+  // 値を入れると会社概要ページに自動で表示されます。空のままなら行ごと非表示。
   fiscalYearEnd: "",
   phone: "",
   address: {
