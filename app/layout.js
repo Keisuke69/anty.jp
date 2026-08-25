@@ -53,7 +53,7 @@ const organizationJsonLd = {
     addressLocality: site.address.locality,
     streetAddress: site.address.street,
   },
-  sameAs: site.shops.map((shop) => shop.url),
+  sameAs: [...site.shops.map((shop) => shop.url), site.instagram.url],
 };
 
 export default function RootLayout({ children }) {

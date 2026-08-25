@@ -49,11 +49,11 @@ export default function Home() {
               </span>
               <h3>ハンドメイドアクセサリー</h3>
               <p>
-                手仕事でつくるアクセサリーを、企画から製造、販売まで自社で行っています。オンラインマーケットのminneとCreemaで販売中です。
+                アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。minneとCreemaで販売中です。
               </p>
               <ul className={styles.cardServices}>
-                <li>アクセサリー・装身具の企画とデザイン</li>
-                <li>製造と品質の管理</li>
+                <li>左右で形の違うアシンメトリーな耳飾り</li>
+                <li>ネックレス、ヘアアクセサリー、バッグチャーム</li>
                 <li>オンラインでの販売、卸のご相談</li>
               </ul>
               <span className={styles.cardMore}>事業について →</span>

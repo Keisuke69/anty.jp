@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className={styles.heading}>Online shop</p>
+            <p className={styles.heading}>Accessory</p>
             <ul className={styles.list}>
               {site.shops.map((shop) => (
                 <li key={shop.url}>
@@ -46,6 +46,16 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+              <li>
+                <a
+                  className={styles.external}
+                  href={site.instagram.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Instagram
+                </a>
+              </li>
             </ul>
           </div>
         </div>
