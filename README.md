@@ -35,3 +35,16 @@ yarn build   # out/ に静的ファイルを書き出す
 
 - `app/layout.js` でタイトル、ディスクリプション、OGP、`Organization` の構造化データを設定しています。
 - `app/sitemap.js` と `app/robots.js` から `sitemap.xml` と `robots.txt` を生成しています。ページを追加したら `app/sitemap.js` の一覧にも追加してください。
+
+## アクセス解析（Google Analytics）
+
+- GA4 のタグは `app/layout.js` で `@next/third-parties` の `GoogleAnalytics` から読み込んでいます。測定 ID は `app/site-config.js` の `gaId` にまとめてあります。
+- タグが入るのは本番ビルド（`yarn build`）だけです。`yarn dev` では出力しないので、開発中のアクセスは計測されません。
+- `gaId` を空にすると、タグごと出力されなくなります。
+- ページ間の移動はクライアント側の遷移なので、2ページ目以降を計測するには GA4 の「拡張計測機能 > 履歴の変更に基づくページの変更」が有効になっている必要があります（GA4 の初期状態で有効）。
+
+## Search Console
+
+- 所有権の確認は2通りあります。ドメインごとまとめて確認できる DNS の TXT レコード（Amplify で使っているドメインの DNS に追加）のほうが堅く、コードの変更も要りません。
+- meta タグで確認する場合は、Search Console が発行した確認コードを `app/site-config.js` の `googleSiteVerification` に入れて再デプロイします。空のままなら meta タグは出力されません。確認が済んだあとも、外すと所有権が失われるので入れたままにしてください。
+- 登録するサイトマップは `https://anty.jp/sitemap.xml` です。

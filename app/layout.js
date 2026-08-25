@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -34,6 +36,10 @@ export const metadata = {
     images: ["/images/handmade-accessories.jpg"],
   },
   icons: { icon: "/favicon.ico" },
+  // 確認コードが空のときは meta タグを出力しない
+  verification: site.googleSiteVerification
+    ? { google: site.googleSiteVerification }
+    : undefined,
 };
 
 const organizationJsonLd = {
@@ -56,6 +62,10 @@ const organizationJsonLd = {
   sameAs: [...site.shops.map((shop) => shop.url), site.instagram.url],
 };
 
+// 開発中のアクセスをGA4に混ぜたくないので、本番ビルドのときだけタグを出す。
+const enableAnalytics =
+  process.env.NODE_ENV === "production" && Boolean(site.gaId);
+
 export default function RootLayout({ children }) {
   return (
     <html lang="ja">
@@ -73,6 +83,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </body>
+      {enableAnalytics && <GoogleAnalytics gaId={site.gaId} />}
     </html>
   );
 }
