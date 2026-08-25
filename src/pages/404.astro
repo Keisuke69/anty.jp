@@ -1,0 +1,17 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+---
+
+<Base title="ページが見つかりません" noindex>
+  <PageHeader
+    eyebrow="404"
+    title="ページが見つかりません"
+    lead="お探しのページは移動または削除された可能性があります。"
+  />
+  <section class="section">
+    <div class="container">
+      <a class="button" href="/">トップページへ戻る</a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,83 @@
+---
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ContactCta from "../../components/ContactCta.astro";
+import styles from "./page.module.css";
+import { site } from "../../site-config.js";
+
+// 値が入っている項目だけを表示する（資本金などは site-config.js に追記すると出ます）
+const rows = [
+  { term: "名称", value: `${site.name}（英語表記: ${site.nameEn}）` },
+  { term: "所在地", value: site.address.full },
+  { term: "設立", value: site.foundedLabel },
+  { term: "資本金", value: site.capital },
+  { term: "代表取締役", value: site.ceo },
+  { term: "決算期", value: site.fiscalYearEnd },
+  { term: "電話番号", value: site.phone },
+].filter((row) => row.value);
+---
+
+<Base
+  title="会社概要"
+  description="株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ハンドメイドアクセサリー事業とITシステム・ソフトウェア開発事業を営んでいます。"
+  canonical="/about/"
+>
+  <PageHeader
+    eyebrow="About us"
+    title="会社概要"
+    lead="2021年2月に設立しました。ハンドメイドアクセサリーの製造・販売と、ITシステム・ソフトウェアの開発を行っています。"
+  />
+
+  <section class="section">
+    <div class="container">
+      <dl class={styles.profile}>
+        {rows.map((row) => (
+          <div class={styles.row}>
+            <dt>{row.term}</dt>
+            <dd>{row.value}</dd>
+          </div>
+        ))}
+        <div class={styles.row}>
+          <dt>お問い合わせ</dt>
+          <dd>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </dd>
+        </div>
+        <div class={styles.row}>
+          <dt>事業内容</dt>
+          <dd>
+            <ul class={styles.purposeList}>
+              {site.purposes.map((purpose) => (
+                <li>{purpose}</li>
+              ))}
+            </ul>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section section--alt">
+    <div class="container">
+      <span class="eyebrow">Business</span>
+      <h2 class="sectionTitle">事業紹介</h2>
+      <div class={styles.businessLinks}>
+        <a href="/business/handmade/">
+          <strong>ハンドメイドアクセサリー事業 →</strong>
+          <span>アンティーク風のアクセサリーを、企画から製作、販売まで。</span>
+        </a>
+        <a href="/business/technology/">
+          <strong>ITシステム・ソフトウェア開発事業 →</strong>
+          <span>
+            コンサルティング、開発、開発支援。企画段階からのご相談も承ります。
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <ContactCta
+    title="お問い合わせ"
+    text="事業に関するご相談、お取引の確認などはこちらから。"
+  />
+</Base>
