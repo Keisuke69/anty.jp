@@ -43,24 +43,6 @@ export default function Home() {
           </p>
 
           <div className={styles.businessGrid}>
-            <Link className={styles.businessCard} href="/business/technology/">
-              <span className={`${styles.cardTag} ${styles.cardTagTech}`}>
-                Technology
-              </span>
-              <h3>ITシステム・ソフトウェア開発</h3>
-              <p>
-                ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。企画段階のご相談から、開発チームへの参画まで対応します。
-              </p>
-              <ul className={styles.cardServices}>
-                <li>技術・プロダクトのコンサルティング</li>
-                <li>Webサービス、ECサイトなどの設計・開発</li>
-                <li>開発体制づくりの支援</li>
-              </ul>
-              <span className={`${styles.cardMore} ${styles.cardMoreTech}`}>
-                事業について →
-              </span>
-            </Link>
-
             <Link className={styles.businessCard} href="/business/handmade/">
               <span className={`${styles.cardTag} ${styles.cardTagHandmade}`}>
                 Handmade
@@ -76,11 +58,53 @@ export default function Home() {
               </ul>
               <span className={styles.cardMore}>事業について →</span>
             </Link>
+
+            <Link className={styles.businessCard} href="/business/technology/">
+              <span className={`${styles.cardTag} ${styles.cardTagTech}`}>
+                Technology
+              </span>
+              <h3>ITシステム・ソフトウェア開発</h3>
+              <p>
+                技術顧問・アドバイザリーを中心に、ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。
+              </p>
+              <ul className={styles.cardServices}>
+                <li>技術顧問・アドバイザリー</li>
+                <li>Webサービス、ECサイトなどの設計・開発</li>
+                <li>開発体制づくりの支援</li>
+              </ul>
+              <span className={`${styles.cardMore} ${styles.cardMoreTech}`}>
+                事業について →
+              </span>
+            </Link>
           </div>
         </div>
       </section>
 
       <section className="section section--alt">
+        <div className="container">
+          <span className="eyebrow">Online shop</span>
+          <h2 className="sectionTitle">アクセサリーの購入</h2>
+          <p className="lead">
+            商品は以下のオンラインマーケットで販売しています。在庫や新作の情報は各ページをご覧ください。
+          </p>
+          <div className={styles.shopGrid}>
+            {site.shops.map((shop) => (
+              <a
+                key={shop.url}
+                className={styles.shopCard}
+                href={shop.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className={styles.shopName}>{shop.name} ↗</span>
+                <span className={styles.shopNote}>{shop.description}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
         <div className={`container ${styles.aboutRow}`}>
           <div>
             <span className="eyebrow">About</span>
@@ -114,36 +138,12 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container">
-          <span className="eyebrow">Online shop</span>
-          <h2 className="sectionTitle">アクセサリーの購入</h2>
-          <p className="lead">
-            商品は以下のオンラインマーケットで販売しています。在庫や新作の情報は各ページをご覧ください。
-          </p>
-          <div className={styles.shopGrid}>
-            {site.shops.map((shop) => (
-              <a
-                key={shop.url}
-                className={styles.shopCard}
-                href={shop.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className={styles.shopName}>{shop.name} ↗</span>
-                <span className={styles.shopNote}>{shop.description}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className={styles.ctaSection}>
         <div className="container">
           <div className={styles.cta}>
             <h2>ご相談・お問い合わせ</h2>
             <p>
-              システム開発や技術支援のこと、商品や卸のこと。どちらの事業についても、メールでお問い合わせいただけます。
+              商品や卸のこと、システム開発や技術支援のこと。どちらの事業についても、メールでお問い合わせいただけます。
             </p>
             <Link className="button" href="/contact/">
               お問い合わせページへ

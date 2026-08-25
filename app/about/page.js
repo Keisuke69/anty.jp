@@ -7,7 +7,7 @@ import { site } from "../site-config";
 export const metadata = {
   title: "会社概要",
   description:
-    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ITシステム・ソフトウェア開発事業とハンドメイドアクセサリー事業を営んでいます。",
+    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ハンドメイドアクセサリー事業とITシステム・ソフトウェア開発事業を営んでいます。",
   alternates: { canonical: "/about/" },
 };
 
@@ -29,7 +29,7 @@ export default function About() {
       <PageHeader
         eyebrow="About us"
         title="会社概要"
-        lead="2021年2月に設立しました。ITシステム・ソフトウェアの開発と、ハンドメイドアクセサリーの製造・販売を行っています。"
+        lead="2021年2月に設立しました。ハンドメイドアクセサリーの製造・販売と、ITシステム・ソフトウェアの開発を行っています。"
       />
 
       <section className="section">
@@ -66,16 +66,16 @@ export default function About() {
           <span className="eyebrow">Business</span>
           <h2 className="sectionTitle">事業紹介</h2>
           <div className={styles.businessLinks}>
-            <Link href="/business/technology/">
-              <strong>ITシステム・ソフトウェア開発事業 →</strong>
-              <span>
-                コンサルティング、開発、開発支援。企画段階からのご相談も承ります。
-              </span>
-            </Link>
             <Link href="/business/handmade/">
               <strong>ハンドメイドアクセサリー事業 →</strong>
               <span>
                 アクセサリーの企画・デザインから製造、オンラインでの販売まで。
+              </span>
+            </Link>
+            <Link href="/business/technology/">
+              <strong>ITシステム・ソフトウェア開発事業 →</strong>
+              <span>
+                コンサルティング、開発、開発支援。企画段階からのご相談も承ります。
               </span>
             </Link>
           </div>

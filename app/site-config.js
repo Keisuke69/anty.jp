@@ -5,7 +5,7 @@ export const site = {
   shortName: "Anty",
   url: "https://anty.jp",
   description:
-    "株式会社Antyは、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援と、ハンドメイドアクセサリーの企画・製造・販売を行う会社です。",
+    "株式会社Antyは、ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援を行う会社です。",
   email: "corporate@anty.jp",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
@@ -44,8 +44,8 @@ export const site = {
 };
 
 export const nav = [
-  { href: "/business/technology/", label: "テクノロジー事業" },
   { href: "/business/handmade/", label: "ハンドメイド事業" },
+  { href: "/business/technology/", label: "テクノロジー事業" },
   { href: "/about/", label: "会社概要" },
   { href: "/contact/", label: "お問い合わせ" },
 ];
