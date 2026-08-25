@@ -1,4 +1,5 @@
-import { site } from "../site-config.js";
+import type { APIRoute } from "astro";
+import { site } from "../site-config";
 
 const paths = [
   "/",
@@ -8,7 +9,7 @@ const paths = [
   "/contact/",
 ];
 
-export function GET() {
+export const GET: APIRoute = () => {
   const urls = paths
     .map(
       (path) =>

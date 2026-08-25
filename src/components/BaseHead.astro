@@ -1,8 +1,15 @@
 ---
-import { site } from "../site-config.js";
+import { site } from "../site-config";
 
 // title はページ名だけを受け取り、サイト名を付けて出力する。トップページは省略して既定のタイトルを使う。
 // path は canonical と og:url に使う。404 のように canonical を持たないページでは省略する。
+interface Props {
+  title?: string;
+  description?: string;
+  path?: string;
+  noindex?: boolean;
+}
+
 const { title, description = site.description, path, noindex = false } = Astro.props;
 
 const defaultTitle = `${site.name} | ハンドメイドアクセサリーとソフトウェア開発`;
