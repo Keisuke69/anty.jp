@@ -22,29 +22,33 @@ const year = new Date().getFullYear();
       <div>
         <p class={styles.heading}>Site</p>
         <ul class={styles.list}>
-          {nav.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))}
+          {
+            nav.map((item) => (
+              <li>
+                <a href={item.href}>{item.label}</a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <div>
         <p class={styles.heading}>Accessory</p>
         <ul class={styles.list}>
-          {site.shops.map((shop) => (
-            <li>
-              <a
-                class={styles.external}
-                href={shop.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {shop.name}
-              </a>
-            </li>
-          ))}
+          {
+            site.shops.map((shop) => (
+              <li>
+                <a
+                  class={styles.external}
+                  href={shop.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {shop.name}
+                </a>
+              </li>
+            ))
+          }
           <li>
             <a
               class={styles.external}
@@ -59,6 +63,8 @@ const year = new Date().getFullYear();
       </div>
     </div>
 
-    <p class={styles.bottom}>© 2021–{year} {site.nameEn}</p>
+    <p class={styles.bottom}>
+      © 2021–{year} {site.nameEn}
+    </p>
   </div>
 </footer>

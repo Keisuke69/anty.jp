@@ -1,7 +1,5 @@
 import { site } from "../site-config.js";
 
-// Search Console には https://anty.jp/sitemap.xml で登録済みなので、
-// このURLとファイル名を変えないこと（@astrojs/sitemap は sitemap-index.xml を出すため使わない）。
 const paths = [
   "/",
   "/business/handmade/",

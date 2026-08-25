@@ -1,20 +1,14 @@
 ---
-// head の中身はこのコンポーネントに集約する。ページごとに meta タグを手書きしない。
-// og:title / og:description / og:url はページ固有の値を出す
-// （Next.js 時代はトップの値で固定になっていた不具合があり、ここで修正済み）。
 import { site } from "../site-config.js";
 
-const { title, description = site.description, canonical, noindex = false } = Astro.props;
+// title はページ名だけを受け取り、サイト名を付けて出力する。トップページは省略して既定のタイトルを使う。
+// path は canonical と og:url に使う。404 のように canonical を持たないページでは省略する。
+const { title, description = site.description, path, noindex = false } = Astro.props;
 
 const defaultTitle = `${site.name} | ハンドメイドアクセサリーとソフトウェア開発`;
 const fullTitle = title ? `${title} | ${site.name}` : defaultTitle;
-const canonicalUrl = canonical ? `${site.url}${canonical}` : undefined;
-const ogImage = {
-  url: `${site.url}/images/handmade-accessories.jpg`,
-  width: "1616",
-  height: "1080",
-  alt: "Antyのハンドメイドアクセサリー",
-};
+const canonical = path ? new URL(path, site.url).href : null;
+const ogImage = new URL("/images/handmade-accessories.jpg", site.url).href;
 ---
 
 <meta charset="utf-8" />
@@ -22,22 +16,25 @@ const ogImage = {
 {noindex && <meta name="robots" content="noindex" />}
 <title>{fullTitle}</title>
 <meta name="description" content={description} />
-{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+{canonical && <link rel="canonical" href={canonical} />}
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
-{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+{canonical && <meta property="og:url" content={canonical} />}
 <meta property="og:site_name" content={site.name} />
 <meta property="og:locale" content="ja_JP" />
-<meta property="og:image" content={ogImage.url} />
-<meta property="og:image:width" content={ogImage.width} />
-<meta property="og:image:height" content={ogImage.height} />
-<meta property="og:image:alt" content={ogImage.alt} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1616" />
+<meta property="og:image:height" content="1080" />
+<meta property="og:image:alt" content="Antyのハンドメイドアクセサリー" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage.url} />
+<meta name="twitter:image" content={ogImage} />
 <link rel="icon" href="/favicon.ico" />
-{site.googleSiteVerification && (
-  <meta name="google-site-verification" content={site.googleSiteVerification} />
-)}
+{
+  // 確認コードが空のときは meta タグを出力しない
+  site.googleSiteVerification && (
+    <meta name="google-site-verification" content={site.googleSiteVerification} />
+  )
+}

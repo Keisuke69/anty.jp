@@ -1,9 +1,9 @@
 ---
-import Base from "../../../layouts/Base.astro";
-import PageHeader from "../../../components/PageHeader.astro";
-import ContactCta from "../../../components/ContactCta.astro";
-import styles from "./page.module.css";
-import { site } from "../../../site-config.js";
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ContactCta from "../../components/ContactCta.astro";
+import styles from "../../styles/business-handmade.module.css";
+import { site } from "../../site-config.js";
 
 const items = [
   "耳飾り（ピアス・イヤリング）",
@@ -24,7 +24,7 @@ const materials = [
 <Base
   title="ハンドメイド事業"
   description="株式会社Antyのハンドメイドアクセサリー事業について。アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。"
-  canonical="/business/handmade/"
+  path="/business/handmade/"
 >
   <PageHeader
     eyebrow="Handmade accessory"
@@ -44,9 +44,7 @@ const materials = [
           ほかに、ネックレスや、インド刺繍のリボンを使ったヘアアクセサリー、バッグチャームもあります。
         </p>
         <ul class={styles.tagList}>
-          {items.map((item) => (
-            <li>{item}</li>
-          ))}
+          {items.map((item) => <li>{item}</li>)}
         </ul>
       </div>
       <figure class={styles.figure}>
@@ -68,9 +66,7 @@ const materials = [
         金具には16kgpや本ロジウムコーティングのもの、サージカルステンレスを使い、そこにコットンパールやストーン、金属のパーツを組み合わせています。普段使いにも、フォーマルな場面にも合わせられるようにつくっています。
       </p>
       <ul class={styles.tagList}>
-        {materials.map((material) => (
-          <li>{material}</li>
-        ))}
+        {materials.map((material) => <li>{material}</li>)}
       </ul>
     </div>
   </section>
@@ -112,14 +108,16 @@ const materials = [
         以下のマーケットでも販売しています。在庫状況や新作の入荷は各ショップページでご確認ください。
       </p>
       <ul class={styles.shopList}>
-        {site.shops.map((shop) => (
-          <li>
-            <a href={shop.url} target="_blank" rel="noopener noreferrer">
-              <strong>{shop.name} ↗</strong>
-              <span>{shop.description}</span>
-            </a>
-          </li>
-        ))}
+        {
+          site.shops.map((shop) => (
+            <li>
+              <a href={shop.url} target="_blank" rel="noopener noreferrer">
+                <strong>{shop.name} ↗</strong>
+                <span>{shop.description}</span>
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </section>

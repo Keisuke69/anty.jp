@@ -1,8 +1,8 @@
 ---
-import Base from "../../../layouts/Base.astro";
-import PageHeader from "../../../components/PageHeader.astro";
-import ContactCta from "../../../components/ContactCta.astro";
-import styles from "./page.module.css";
+import Base from "../../layouts/Base.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import ContactCta from "../../components/ContactCta.astro";
+import styles from "../../styles/business-technology.module.css";
 
 const services = [
   {
@@ -87,7 +87,7 @@ const areas = [
 <Base
   title="テクノロジー事業"
   description="株式会社AntyのITシステム・ソフトウェアプロダクト事業について。技術顧問・アドバイザリー、コンサルティング、開発、開発支援を行っています。"
-  canonical="/business/technology/"
+  path="/business/technology/"
 >
   <PageHeader
     eyebrow="Technology"
@@ -103,17 +103,19 @@ const areas = [
         継続的な顧問契約から、単発のご相談、開発チームに入っての支援まで、必要な工程に必要なかたちで関わります。
       </p>
       <div class={styles.serviceGrid}>
-        {services.map((service) => (
-          <div class={styles.service}>
-            <h3>{service.title}</h3>
-            <p>{service.text}</p>
-            <ul>
-              {service.items.map((item) => (
-                <li>{item}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        {
+          services.map((service) => (
+            <div class={styles.service}>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
+              <ul>
+                {service.items.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -132,12 +134,14 @@ const areas = [
       </div>
 
       <div class={styles.strengthGrid}>
-        {strengths.map((strength) => (
-          <div class={styles.strength}>
-            <h3>{strength.title}</h3>
-            <p>{strength.text}</p>
-          </div>
-        ))}
+        {
+          strengths.map((strength) => (
+            <div class={styles.strength}>
+              <h3>{strength.title}</h3>
+              <p>{strength.text}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
@@ -147,9 +151,7 @@ const areas = [
       <span class="eyebrow">Areas</span>
       <h2 class="sectionTitle">対応領域</h2>
       <ul class={styles.areaList}>
-        {areas.map((area) => (
-          <li>{area}</li>
-        ))}
+        {areas.map((area) => <li>{area}</li>)}
       </ul>
     </div>
   </section>
@@ -159,14 +161,16 @@ const areas = [
       <span class="eyebrow">Flow</span>
       <h2 class="sectionTitle">ご相談の流れ</h2>
       <ol class={styles.flow}>
-        {flow.map((step) => (
-          <li>
-            <div>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </div>
-          </li>
-        ))}
+        {
+          flow.map((step) => (
+            <li>
+              <div>
+                <h3>{step.title}</h3>
+                <p>{step.text}</p>
+              </div>
+            </li>
+          ))
+        }
       </ol>
     </div>
   </section>

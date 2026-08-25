@@ -11,11 +11,13 @@ import { nav, site } from "../site-config.js";
     </a>
     <nav class={styles.nav} aria-label="メインナビゲーション">
       <ul>
-        {nav.map((item) => (
-          <li>
-            <a href={item.href}>{item.label}</a>
-          </li>
-        ))}
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>

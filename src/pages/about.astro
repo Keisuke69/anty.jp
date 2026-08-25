@@ -1,9 +1,9 @@
 ---
-import Base from "../../layouts/Base.astro";
-import PageHeader from "../../components/PageHeader.astro";
-import ContactCta from "../../components/ContactCta.astro";
-import styles from "./page.module.css";
-import { site } from "../../site-config.js";
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import ContactCta from "../components/ContactCta.astro";
+import styles from "../styles/about.module.css";
+import { site } from "../site-config.js";
 
 // 値が入っている項目だけを表示する（資本金などは site-config.js に追記すると出ます）
 const rows = [
@@ -20,7 +20,7 @@ const rows = [
 <Base
   title="会社概要"
   description="株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ハンドメイドアクセサリー事業とITシステム・ソフトウェア開発事業を営んでいます。"
-  canonical="/about/"
+  path="/about/"
 >
   <PageHeader
     eyebrow="About us"
@@ -31,12 +31,14 @@ const rows = [
   <section class="section">
     <div class="container">
       <dl class={styles.profile}>
-        {rows.map((row) => (
-          <div class={styles.row}>
-            <dt>{row.term}</dt>
-            <dd>{row.value}</dd>
-          </div>
-        ))}
+        {
+          rows.map((row) => (
+            <div class={styles.row}>
+              <dt>{row.term}</dt>
+              <dd>{row.value}</dd>
+            </div>
+          ))
+        }
         <div class={styles.row}>
           <dt>お問い合わせ</dt>
           <dd>
@@ -47,9 +49,7 @@ const rows = [
           <dt>事業内容</dt>
           <dd>
             <ul class={styles.purposeList}>
-              {site.purposes.map((purpose) => (
-                <li>{purpose}</li>
-              ))}
+              {site.purposes.map((purpose) => <li>{purpose}</li>)}
             </ul>
           </dd>
         </div>

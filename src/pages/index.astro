@@ -1,10 +1,18 @@
 ---
 import Base from "../layouts/Base.astro";
-import styles from "./page.module.css";
+import styles from "../styles/home.module.css";
 import { site } from "../site-config.js";
 ---
 
-<Base canonical="/">
+<Base path="/">
+  <link
+    slot="head"
+    rel="preload"
+    href="/images/handmade-accessories.jpg"
+    as="image"
+    fetchpriority="high"
+  />
+
   <section class={styles.hero}>
     <div class={`container ${styles.heroInner}`}>
       <div>
@@ -91,17 +99,19 @@ import { site } from "../site-config.js";
           <span class={styles.shopName}>Instagram ↗</span>
           <span class={styles.shopNote}>{site.instagram.description}</span>
         </a>
-        {site.shops.map((shop) => (
-          <a
-            class={styles.shopCard}
-            href={shop.url}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <span class={styles.shopName}>{shop.name} ↗</span>
-            <span class={styles.shopNote}>{shop.description}</span>
-          </a>
-        ))}
+        {
+          site.shops.map((shop) => (
+            <a
+              class={styles.shopCard}
+              href={shop.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span class={styles.shopName}>{shop.name} ↗</span>
+              <span class={styles.shopNote}>{shop.description}</span>
+            </a>
+          ))
+        }
       </div>
     </div>
   </section>
