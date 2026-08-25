@@ -3,9 +3,9 @@ import Base from "../layouts/Base.astro";
 import PageHeader from "../components/PageHeader.astro";
 import ContactCta from "../components/ContactCta.astro";
 import styles from "../styles/about.module.css";
-import { site } from "../site-config.js";
+import { site } from "../site-config";
 
-// 値が入っている項目だけを表示する（資本金などは site-config.js に追記すると出ます）
+// 値が入っている項目だけを表示する（資本金などは site-config.ts に追記すると出ます）
 const rows = [
   { term: "名称", value: `${site.name}（英語表記: ${site.nameEn}）` },
   { term: "所在地", value: site.address.full },
