@@ -94,3 +94,13 @@
     grid-template-columns: 1fr;
   }
 }
+
+.snsNote {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.snsNote a {
+  color: var(--accent);
+}

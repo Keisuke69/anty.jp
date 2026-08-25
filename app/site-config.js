@@ -34,6 +34,13 @@ export const site = {
       description: "クリエイター作品のオンラインマーケット",
     },
   ],
+  // ハンドメイド事業のアカウント。会社全体ではなくアクセサリーの発信用。
+  instagram: {
+    name: "Instagram",
+    handle: "@anty.accessory",
+    url: "https://www.instagram.com/anty.accessory",
+    description: "新作やイベント出店の情報",
+  },
   // 定款上の事業目的
   purposes: [
     "衣料品、衣料雑貨品、装身具、鞄、時計及び文房具の企画、製作並びにそれらの販売",

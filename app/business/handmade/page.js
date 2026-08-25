@@ -107,6 +107,17 @@ export default function Handmade() {
               </li>
             ))}
           </ul>
+          <p className={styles.snsNote}>
+            {site.instagram.description}は、Instagram（
+            <a
+              href={site.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {site.instagram.handle}
+            </a>
+            ）でお知らせしています。
+          </p>
         </div>
       </section>
 
