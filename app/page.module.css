@@ -152,21 +152,28 @@
 
 .shopGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   margin-top: 32px;
 }
 
 .shopCard {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 16px;
+  flex-direction: column;
+  gap: 8px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   padding: 22px 24px;
   transition: border-color 0.2s ease;
+}
+
+.shopCardPrimary {
+  border-color: var(--accent);
+}
+
+.shopCardPrimary .shopName {
+  color: var(--accent-dark);
 }
 
 .shopCard:hover {

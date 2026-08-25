@@ -39,7 +39,7 @@ export const site = {
     name: "Instagram",
     handle: "@anty.accessory",
     url: "https://www.instagram.com/anty.accessory",
-    description: "新作やイベント出店の情報",
+    description: "イベント出展とポップアップストアの予定、新作の紹介",
   },
   // 定款上の事業目的
   purposes: [

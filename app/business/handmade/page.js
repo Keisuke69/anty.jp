@@ -93,9 +93,27 @@ export default function Handmade() {
       <section className="section section--alt">
         <div className="container">
           <span className="eyebrow">Where to buy</span>
-          <h2 className="sectionTitle">お求めいただけるお店</h2>
+          <h2 className="sectionTitle">お求めいただける場所</h2>
           <p className="lead">
-            オンラインマーケットで販売しています。在庫状況や新作の入荷は各ショップページでご確認ください。
+            イベントへの出展やポップアップストアでの対面販売を中心にしています。出展の予定はInstagramでお知らせしていますので、お近くで開催の際はお立ち寄りください。
+          </p>
+
+          <a
+            className={styles.instagramCard}
+            href={site.instagram.url}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className={styles.instagramLabel}>出展情報</span>
+            <strong>Instagram {site.instagram.handle} ↗</strong>
+            <span className={styles.instagramNote}>
+              {site.instagram.description}
+            </span>
+          </a>
+
+          <h3 className={styles.subheading}>オンラインでの販売</h3>
+          <p className={styles.subtext}>
+            以下のマーケットでも販売しています。在庫状況や新作の入荷は各ショップページでご確認ください。
           </p>
           <ul className={styles.shopList}>
             {site.shops.map((shop) => (
@@ -107,23 +125,12 @@ export default function Handmade() {
               </li>
             ))}
           </ul>
-          <p className={styles.snsNote}>
-            {site.instagram.description}は、Instagram（
-            <a
-              href={site.instagram.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {site.instagram.handle}
-            </a>
-            ）でお知らせしています。
-          </p>
         </div>
       </section>
 
       <ContactCta
         title="卸・お取り扱いのご相談"
-        text="店舗での取り扱いやイベント出店、パーツの卸についてのご相談を承っています。"
+        text="店舗での取り扱いや、イベントやポップアップストアへの出展のお誘い、パーツの卸についてのご相談を承っています。"
       />
     </>
   );

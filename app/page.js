@@ -49,12 +49,12 @@ export default function Home() {
               </span>
               <h3>ハンドメイドアクセサリー</h3>
               <p>
-                アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。minneとCreemaで販売中です。
+                アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。イベント出展やポップアップストアでの対面販売が中心です。
               </p>
               <ul className={styles.cardServices}>
                 <li>左右で形の違うアシンメトリーな耳飾り</li>
                 <li>ネックレス、ヘアアクセサリー、バッグチャーム</li>
-                <li>オンラインでの販売、卸のご相談</li>
+                <li>イベントやオンラインでの販売、卸のご相談</li>
               </ul>
               <span className={styles.cardMore}>事業について →</span>
             </Link>
@@ -82,12 +82,21 @@ export default function Home() {
 
       <section className="section section--alt">
         <div className="container">
-          <span className="eyebrow">Online shop</span>
+          <span className="eyebrow">Where to buy</span>
           <h2 className="sectionTitle">アクセサリーの購入</h2>
           <p className="lead">
-            商品は以下のオンラインマーケットで販売しています。在庫や新作の情報は各ページをご覧ください。
+            イベントへの出展やポップアップストアでの対面販売が中心です。出展の予定はInstagramでお知らせしています。オンラインマーケットでも販売しています。
           </p>
           <div className={styles.shopGrid}>
+            <a
+              className={`${styles.shopCard} ${styles.shopCardPrimary}`}
+              href={site.instagram.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className={styles.shopName}>Instagram ↗</span>
+              <span className={styles.shopNote}>{site.instagram.description}</span>
+            </a>
             {site.shops.map((shop) => (
               <a
                 key={shop.url}
