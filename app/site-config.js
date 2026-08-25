@@ -5,7 +5,7 @@ export const site = {
   shortName: "Anty",
   url: "https://anty.jp",
   description:
-    "株式会社Antyは、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援と、ハンドメイドアクセサリーの企画・製造・販売を行う、神奈川県横浜市の会社です。",
+    "株式会社Antyは、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援と、ハンドメイドアクセサリーの企画・製造・販売を行う会社です。",
   email: "corporate@anty.jp",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",

@@ -7,7 +7,7 @@ import { site } from "../site-config";
 export const metadata = {
   title: "会社概要",
   description:
-    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立、神奈川県横浜市。ITシステム・ソフトウェア開発事業とハンドメイドアクセサリー事業を営んでいます。",
+    "株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ITシステム・ソフトウェア開発事業とハンドメイドアクセサリー事業を営んでいます。",
   alternates: { canonical: "/about/" },
 };
 
@@ -29,7 +29,7 @@ export default function About() {
       <PageHeader
         eyebrow="About us"
         title="会社概要"
-        lead="2021年2月に設立した、横浜の会社です。ITシステム・ソフトウェアの開発と、ハンドメイドアクセサリーの製造・販売を行っています。"
+        lead="2021年2月に設立しました。ITシステム・ソフトウェアの開発と、ハンドメイドアクセサリーの製造・販売を行っています。"
       />
 
       <section className="section">

@@ -11,7 +11,7 @@ export default function Home() {
             <span className={styles.heroEyebrow}>{site.nameEn}</span>
             <h1 className={styles.heroTitle}>{site.name}</h1>
             <p className={styles.heroText}>
-              神奈川県横浜市の会社です。ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトの開発という、2つの事業を営んでいます。
+              ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトの開発という、2つの事業を営んでいます。
             </p>
             <div className={styles.heroActions}>
               <Link className="button" href="/contact/">
@@ -85,9 +85,6 @@ export default function Home() {
           <div>
             <span className="eyebrow">About</span>
             <h2 className="sectionTitle">会社概要</h2>
-            <p className="lead">
-              2021年2月に設立した、横浜の会社です。
-            </p>
             <p style={{ marginTop: "24px" }}>
               <Link className="button button--ghost" href="/about/">
                 詳しい会社概要
