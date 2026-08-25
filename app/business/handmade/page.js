@@ -6,26 +6,23 @@ import { site } from "../../site-config";
 export const metadata = {
   title: "ハンドメイド事業",
   description:
-    "株式会社Antyのハンドメイドアクセサリー事業について。企画・デザインから製造、オンラインでの販売までを自社で行っています。",
+    "株式会社Antyのハンドメイドアクセサリー事業について。アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。",
   alternates: { canonical: "/business/handmade/" },
 };
 
-const steps = [
-  {
-    number: "01",
-    title: "企画・デザイン",
-    text: "身につける場面を思い浮かべながら、素材と組み合わせを決めていきます。",
-  },
-  {
-    number: "02",
-    title: "製造",
-    text: "パーツの選定から組み立てまで、手作業で仕上げます。",
-  },
-  {
-    number: "03",
-    title: "販売",
-    text: "オンラインマーケットで販売し、お客さまからのご質問にも直接お答えしています。",
-  },
+const items = [
+  "耳飾り（ピアス・イヤリング）",
+  "ネックレス",
+  "ヘアアクセサリー",
+  "バッグチャーム",
+];
+
+const materials = [
+  "16kgp",
+  "本ロジウムコーティング",
+  "サージカルステンレスの金具",
+  "コットンパール",
+  "ストーン",
 ];
 
 export default function Handmade() {
@@ -34,19 +31,25 @@ export default function Handmade() {
       <PageHeader
         eyebrow="Handmade accessory"
         title="ハンドメイドアクセサリー事業"
-        lead="手仕事でつくるアクセサリーを、企画から製造、販売まで自社で手がけています。"
+        lead="アンティーク風のアクセサリーを、企画から製作、販売まで自社で手がけています。"
       />
 
       <section className="section">
         <div className={`container ${styles.intro}`}>
           <div className={styles.introText}>
-            <h2 className="sectionTitle">つくって、届けるまで</h2>
-            <p style={{ marginTop: "20px", color: "var(--text-muted)" }}>
-              パールやゴールドのパーツを組み合わせたピアス・イヤリングを中心に、日常で使えるアクセサリーをつくっています。デザインを考えるところから、パーツを選び、組み立て、お届けするところまでを自社で行っています。
+            <span className="eyebrow">Items</span>
+            <h2 className="sectionTitle">つくっているもの</h2>
+            <p>
+              アンティーク風のデザインを軸に、左右で形の違うアシンメトリーな耳飾りをつくっています。ピアスとイヤリングのどちらもご用意しています。
             </p>
-            <p style={{ color: "var(--text-muted)" }}>
-              アクセサリーのほか、衣料品や衣料雑貨品、鞄、時計、文房具の企画・製作・販売、アクセサリーパーツやチェーン、金具などの卸・販売も事業として行っています。
+            <p>
+              ほかに、ネックレスや、インド刺繍のリボンを使ったヘアアクセサリー、バッグチャームもあります。
             </p>
+            <ul className={styles.tagList}>
+              {items.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </div>
           <figure className={styles.figure}>
             <img
@@ -61,21 +64,33 @@ export default function Handmade() {
 
       <section className="section section--alt">
         <div className="container">
-          <span className="eyebrow">Process</span>
-          <h2 className="sectionTitle">ものづくりの流れ</h2>
-          <div className={styles.itemGrid}>
-            {steps.map((step) => (
-              <div key={step.number} className={styles.item}>
-                <span className={styles.itemNumber}>{step.number}</span>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
+          <span className="eyebrow">Materials</span>
+          <h2 className="sectionTitle">素材と金具</h2>
+          <p className="lead">
+            金具には16kgpや本ロジウムコーティングのもの、サージカルステンレスを使い、そこにコットンパールやストーン、金属のパーツを組み合わせています。普段使いにも、フォーマルな場面にも合わせられるようにつくっています。
+          </p>
+          <ul className={styles.tagList}>
+            {materials.map((material) => (
+              <li key={material}>{material}</li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
 
       <section className="section">
+        <div className="container">
+          <span className="eyebrow">Making</span>
+          <h2 className="sectionTitle">つくるときに考えていること</h2>
+          <div className={styles.note}>
+            <p>
+              アクセサリーを選ぶとき、届いた箱を開けるとき、身につけるとき。そのどこかで少し華やいだ気持ちになってもらえたら、と思いながらつくっています。
+            </p>
+            <p>一点ずつ手作業で仕上げています。</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--alt">
         <div className="container">
           <span className="eyebrow">Where to buy</span>
           <h2 className="sectionTitle">お求めいただけるお店</h2>

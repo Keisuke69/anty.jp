@@ -69,7 +69,7 @@ export default function About() {
             <Link href="/business/handmade/">
               <strong>ハンドメイドアクセサリー事業 →</strong>
               <span>
-                アクセサリーの企画・デザインから製造、オンラインでの販売まで。
+                アンティーク風のアクセサリーを、企画から製作、販売まで。
               </span>
             </Link>
             <Link href="/business/technology/">
