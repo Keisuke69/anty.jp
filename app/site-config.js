@@ -5,14 +5,14 @@ export const site = {
   shortName: "Anty",
   url: "https://anty.jp",
   description:
-    "株式会社Antyは、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援と、ハンドメイドアクセサリーの企画・製造・販売を行う、神奈川県横浜市の会社です。",
+    "株式会社Antyは、ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援を行う会社です。",
   email: "corporate@anty.jp",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
   ceo: "西谷 愛",
   // 以下は値を入れると会社概要ページに自動で表示されます。空のままなら行ごと非表示。
   // 取引審査や与信のときに見られる項目です。
-  capital: "",
+  capital: "1,000,000円",
   corporateNumber: "",
   fiscalYearEnd: "",
   phone: "",
@@ -44,8 +44,8 @@ export const site = {
 };
 
 export const nav = [
-  { href: "/business/technology/", label: "テクノロジー事業" },
   { href: "/business/handmade/", label: "ハンドメイド事業" },
+  { href: "/business/technology/", label: "テクノロジー事業" },
   { href: "/about/", label: "会社概要" },
   { href: "/contact/", label: "お問い合わせ" },
 ];
