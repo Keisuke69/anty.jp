@@ -1,0 +1,97 @@
+---
+import Base from "../layouts/Base.astro";
+import PageHeader from "../components/PageHeader.astro";
+import styles from "../styles/contact.module.css";
+import { site } from "../site-config.js";
+
+const topics = [
+  {
+    title: "商品について",
+    text: "アクセサリーの仕様やお届けについてのご質問。ご注文済みの商品については、ご購入いただいたショップからのご連絡が確実です。",
+  },
+  {
+    title: "卸・お取り扱いのご相談",
+    text: "店舗での取り扱い、イベント出店、アクセサリーパーツの卸についてのご相談。",
+  },
+  {
+    title: "開発・技術支援のご相談",
+    text: "システム開発、プロダクト開発の相談、開発チームへの参画や技術顧問のご依頼。",
+  },
+  {
+    title: "取材・その他",
+    text: "取材、協業のご提案、採用に関するお問い合わせなど。",
+  },
+];
+
+const checklist = [
+  "貴社名・お名前（個人のお客さまはお名前のみで結構です）",
+  "ご返信先のメールアドレス",
+  "お問い合わせの内容（お困りごとやご要望）",
+  "ご希望の時期や予算感（開発のご相談の場合、決まっていれば）",
+];
+---
+
+<Base
+  title="お問い合わせ"
+  description="株式会社Antyへのお問い合わせ。商品・卸のご相談、システム開発や技術支援のご相談は corporate@anty.jp までご連絡ください。"
+  path="/contact/"
+>
+  <PageHeader
+    eyebrow="Contact"
+    title="お問い合わせ"
+    lead="どちらの事業についても、メールで承っています。数日以内にご返信します。"
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class={styles.mailCard}>
+        <p class={styles.mailLabel}>Email</p>
+        <a class={styles.mailAddress} href={`mailto:${site.email}`}>
+          {site.email}
+        </a>
+        <p class={styles.mailNote}>クリックするとメールソフトが開きます。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight section--alt">
+    <div class="container">
+      <span class="eyebrow">Topics</span>
+      <h2 class="sectionTitle">お問い合わせの例</h2>
+      <div class={styles.topicGrid}>
+        {
+          topics.map((topic) => (
+            <div class={styles.topic}>
+              <h3>{topic.title}</h3>
+              <p>{topic.text}</p>
+            </div>
+          ))
+        }
+      </div>
+      <p class={styles.shopNote}>
+        商品に関するご質問は、
+        {
+          site.shops.map((shop, index) => (
+            <span>
+              {index > 0 ? "・" : ""}
+              <a href={shop.url} target="_blank" rel="noopener noreferrer">
+                {shop.name}
+              </a>
+            </span>
+          ))
+        }
+        の各ショップページからもお送りいただけます。
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <span class="eyebrow">Before you write</span>
+      <h2 class="sectionTitle">お書き添えいただきたいこと</h2>
+      <ul class={styles.checkList}>
+        {checklist.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+</Base>

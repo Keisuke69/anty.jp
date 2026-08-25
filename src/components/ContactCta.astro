@@ -1,0 +1,17 @@
+---
+import styles from "./ContactCta.module.css";
+
+const { title, text } = Astro.props;
+---
+
+<section class={styles.section}>
+  <div class="container">
+    <div class={styles.cta}>
+      <div class={styles.text}>
+        <h2>{title}</h2>
+        <p>{text}</p>
+      </div>
+      <a class="button" href="/contact/">お問い合わせ</a>
+    </div>
+  </div>
+</section>

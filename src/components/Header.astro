@@ -1,0 +1,24 @@
+---
+import styles from "./Header.module.css";
+import { nav, site } from "../site-config.js";
+---
+
+<header class={styles.header}>
+  <div class={`container ${styles.inner}`}>
+    <a href="/" class={styles.logo}>
+      Anty
+      <span>{site.nameEn}</span>
+    </a>
+    <nav class={styles.nav} aria-label="メインナビゲーション">
+      <ul>
+        {
+          nav.map((item) => (
+            <li>
+              <a href={item.href}>{item.label}</a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
