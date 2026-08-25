@@ -14,6 +14,10 @@
   padding: 36px 40px;
 }
 
+.text {
+  flex: 1 1 340px;
+}
+
 .text h2 {
   font-size: 20px;
 }
