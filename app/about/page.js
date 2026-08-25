@@ -19,7 +19,6 @@ export default function About() {
     { term: "設立", value: site.foundedLabel },
     { term: "資本金", value: site.capital },
     { term: "代表取締役", value: site.ceo },
-    { term: "法人番号", value: site.corporateNumber },
     { term: "決算期", value: site.fiscalYearEnd },
     { term: "電話番号", value: site.phone },
   ].filter((row) => row.value);
