@@ -1,0 +1,11 @@
+// Cloudflare Workers のデプロイ設定。dist/ を静的アセットとして配信するだけの構成です。
+// このファイルがないと `wrangler deploy` が自動セットアップを走らせ、
+// package.json の name (anty.jp) を Worker 名に使おうとして失敗します（ドットは使用不可）。
+{
+	"name": "anty-jp",
+	"compatibility_date": "2026-08-01",
+	"assets": {
+		"directory": "./dist",
+		"not_found_handling": "404-page"
+	}
+}
