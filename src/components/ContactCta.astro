@@ -1,6 +1,6 @@
 ---
 import styles from "./ContactCta.module.css";
-import { site } from "../site-config";
+import { site, contactFormEnabled } from "../site-config";
 
 // 濃い茶のお問い合わせ帯。TOPと各事業ページの末尾で共通。
 interface Props {
@@ -20,9 +20,13 @@ const { eyebrow, title, text, id } = Astro.props;
     <p class={styles.text}>{text}</p>
     <div class="buttonRow">
       <a class="button" href="/contact/">お問い合わせ</a>
-      <a class="button button--ghost" href={`mailto:${site.email}`}>
-        {site.email}
-      </a>
+      {
+        !contactFormEnabled && (
+          <a class="button button--ghost" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+        )
+      }
     </div>
   </div>
 </section>
