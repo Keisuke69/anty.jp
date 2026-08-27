@@ -1,6 +1,16 @@
 ---
 import styles from "./Footer.module.css";
-import { nav, site } from "../site-config";
+import { site } from "../site-config";
+
+// フッターは全ページ共通の内部リンクとして、事業詳細ページへ直接リンクする
+// （ヘッダーの「事業内容」はトップのセクション行きなので、ここが唯一の全ページ導線）
+const footerNav = [
+  { href: "/", label: "TOP" },
+  { href: "/business/accessory/", label: "ハンドメイドアクセサリー事業" },
+  { href: "/business/technology/", label: "テクノロジー事業" },
+  { href: "/about/", label: "会社概要" },
+  { href: "/contact/", label: "お問い合わせ" },
+];
 
 const year = new Date().getFullYear();
 
@@ -29,7 +39,7 @@ const isPaper = pathname.startsWith("/business/accessory");
     }
     <ul class={styles.links}>
       {
-        nav.map((item) => (
+        footerNav.map((item) => (
           <li>
             <a href={item.href}>{item.label}</a>
           </li>

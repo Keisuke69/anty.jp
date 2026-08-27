@@ -10,19 +10,29 @@ interface Props {
   description?: string;
   path?: string;
   noindex?: boolean;
+  ogImage?: string;
+  ogImageAlt?: string;
 }
 
-const { title, description, path, noindex } = Astro.props;
+const { title, description, path, noindex, ogImage, ogImageAlt } = Astro.props;
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  // ページ側のJSON-LD（Serviceなど）から provider として参照できる共通ID
+  "@id": `${site.url}/#organization`,
   name: site.name,
   alternateName: site.nameEn,
   url: site.url,
   logo: `${site.url}/images/logo-anty.png`,
   // フォーム運用中は構造化データにもメールアドレスを載せない
   ...(contactFormEnabled ? {} : { email: site.email }),
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer service",
+    url: `${site.url}/contact/`,
+    availableLanguage: "Japanese",
+  },
   foundingDate: site.founded,
   founder: { "@type": "Person", name: site.ceo },
   address: {
@@ -45,7 +55,7 @@ const enableAnalytics = import.meta.env.PROD && Boolean(site.gaId);
 
 <html lang="ja">
   <head>
-    <BaseHead {title} {description} {path} {noindex} />
+    <BaseHead {title} {description} {path} {noindex} {ogImage} {ogImageAlt} />
     <slot name="head" />
   </head>
   <body>

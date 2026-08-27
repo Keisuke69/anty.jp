@@ -93,11 +93,8 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "技術顧問・アドバイザリー・開発支援",
   serviceType: services.map((service) => service.title),
-  provider: {
-    "@type": "Organization",
-    name: site.name,
-    url: site.url,
-  },
+  // Base.astro が出力する Organization を @id で参照する
+  provider: { "@id": `${site.url}/#organization` },
   url: `${site.url}/business/technology/`,
 };
 ---
@@ -106,6 +103,8 @@ const serviceJsonLd = {
   title="テクノロジー事業｜技術顧問・アドバイザリー・開発支援"
   description="株式会社Antyのテクノロジー事業。技術顧問・アドバイザリーを中心に、ITシステムとソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。"
   path="/business/technology/"
+  ogImage="/images/og-image-technology.jpg"
+  ogImageAlt="株式会社Antyのテクノロジー事業。技術顧問・アドバイザリー・開発支援"
 >
   <Breadcrumb
     items={[
