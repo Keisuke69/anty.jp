@@ -50,7 +50,7 @@ export const site = {
     url: "https://www.instagram.com/anty.accessory/",
     description: "出展予定・新作",
   },
-  // アクセス解析。GA4の測定IDは本番ビルドのときだけ埋め込みます（yarn dev では計測しない）。
+  // アクセス解析。GA4の測定IDは本番ビルドのときだけ埋め込みます（pnpm dev では計測しない）。
   // Search Consoleの所有権をmetaタグで確認するときは、発行された確認コードをここに入れます。
   // DNSのTXTレコードで確認済みなら空のままで構いません。どちらも空ならタグごと出力しません。
   gaId: "G-2TJ2SZEJ77",

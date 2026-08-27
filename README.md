@@ -7,10 +7,10 @@
 Node.js 22.12 以上が必要です。
 
 ```sh
-yarn install
-yarn dev     # http://localhost:4321
-yarn build   # dist/ に静的ファイルを書き出す
-yarn preview # dist/ をローカルで配信して確認する
+pnpm install
+pnpm dev     # http://localhost:4321
+pnpm build   # dist/ に静的ファイルを書き出す
+pnpm preview # dist/ をローカルで配信して確認する
 ```
 
 ## デプロイ
@@ -72,7 +72,7 @@ yarn preview # dist/ をローカルで配信して確認する
 ## アクセス解析（Google Analytics）
 
 - GA4 のタグ（gtag スニペット）は `src/layouts/Base.astro` に直接書いています。測定 ID は `src/site-config.ts` の `gaId` にまとめてあります。
-- タグが入るのは本番ビルド（`yarn build`）だけです。`yarn dev` では出力しないので、開発中のアクセスは計測されません。
+- タグが入るのは本番ビルド（`pnpm build`）だけです。`pnpm dev` では出力しないので、開発中のアクセスは計測されません。
 - `gaId` を空にすると、タグごと出力されなくなります。
 - ページ間の移動は毎回フルリロードなので、どのページでも通常の page_view が送信されます。GA4 の拡張計測機能（履歴の変更に基づくページの変更）には依存していません。
 
