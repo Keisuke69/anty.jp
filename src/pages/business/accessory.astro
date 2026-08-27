@@ -1,9 +1,20 @@
 ---
+import { Picture } from "astro:assets";
 import Base from "../../layouts/Base.astro";
 import Breadcrumb from "../../components/Breadcrumb.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import styles from "../../styles/business-accessory.module.css";
 import { site } from "../../site-config";
+import photoCardsFour from "../../assets/images/photo-cards-four.jpg";
+import photoCardsThree from "../../assets/images/photo-cards-three.jpg";
+import photoDetailGold from "../../assets/images/photo-detail-gold.jpg";
+import photoBooth from "../../assets/images/photo-booth.jpg";
+
+// 表示幅の見積もり（額縁の 12px+1px を含めて container から引く。大きめ＝安全側に丸める）
+// photoBand: コンテナ幅いっぱい / work: 899px超で420px固定カラム / meet: 899px超で2カラムの半分
+const bandSizes = "(min-width: 1280px) 1110px, calc(100vw - 74px)";
+const workSizes = "(min-width: 900px) 394px, calc(100vw - 74px)";
+const meetSizes = "(min-width: 900px) 514px, calc(100vw - 74px)";
 
 // テクノロジー事業ページと同じ形式のService。Organization は Base.astro の @id を参照する
 const serviceJsonLd = {
@@ -43,12 +54,15 @@ const serviceJsonLd = {
   <section class={styles.photoBand}>
     <div class="container">
       <div class="frame">
-        <img
-          src="/images/photo-cards-four.jpg"
+        <Picture
+          src={photoCardsFour}
+          formats={["avif"]}
+          fallbackFormat="webp"
+          widths={[640, 960, 1280, 1600]}
+          sizes={bandSizes}
           alt="同じ形のアシンメトリーな耳飾りを、シルバー・黒・ゴールド・パールの四色で並べた台紙"
-          width="1600"
-          height="1600"
           class={styles.photoWide}
+          loading="eager"
           fetchpriority="high"
         />
       </div>
@@ -103,11 +117,13 @@ const serviceJsonLd = {
             </p>
           </div>
           <div class="frame frame--soft">
-            <img
-              src="/images/photo-cards-three.jpg"
+            <Picture
+              src={photoCardsThree}
+              formats={["avif"]}
+              fallbackFormat="webp"
+              widths={[400, 800, 1200, 1400]}
+              sizes={workSizes}
               alt="透かしの飾りと粒の輪を対にしたアシンメトリーな耳飾り。シルバー、ゴールド、白い雫の三色"
-              width="1400"
-              height="1400"
               class={styles.workPhoto}
               loading="lazy"
             />
@@ -115,11 +131,13 @@ const serviceJsonLd = {
         </article>
         <article class={styles.work}>
           <div class="frame frame--soft">
-            <img
-              src="/images/photo-detail-gold.jpg"
+            <Picture
+              src={photoDetailGold}
+              formats={["avif"]}
+              fallbackFormat="webp"
+              widths={[400, 800, 1200, 1600]}
+              sizes={workSizes}
               alt="金の花座にコットンパールを据え、クリスタルと細い鎖を垂らした耳飾り"
-              width="1600"
-              height="2131"
               class={`${styles.workPhoto} ${styles.workPhotoGold}`}
               loading="lazy"
             />
@@ -212,11 +230,13 @@ const serviceJsonLd = {
   <section class={styles.meet}>
     <div class={`container ${styles.meetGrid}`}>
       <div class="frame frame--soft">
-        <img
-          src="/images/photo-booth.jpg"
+        <Picture
+          src={photoBooth}
+          formats={["avif"]}
+          fallbackFormat="webp"
+          widths={[520, 1040, 1400]}
+          sizes={meetSizes}
           alt="イベント出展のブース。金の織物を背景に、耳飾りとネックレスを並べた台"
-          width="1400"
-          height="1867"
           class={styles.meetPhoto}
           loading="lazy"
         />

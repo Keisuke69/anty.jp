@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import styles from "./Footer.module.css";
 import { site } from "../site-config";
+import logoAnty from "../assets/images/logo-anty.png";
 
 // フッターは全ページ共通の内部リンクとして、事業詳細ページへ直接リンクする
 // （ヘッダーの「事業内容」はトップのセクション行きなので、ここが唯一の全ページ導線）
@@ -22,12 +24,13 @@ const isPaper = pathname.startsWith("/business/accessory");
 
 <footer class={`${styles.footer} ${isPaper ? styles.paper : ""}`}>
   <div class={styles.inner}>
-    <img
+    <Image
       class={styles.logo}
-      src="/images/logo-anty.png"
+      src={logoAnty}
       alt="株式会社Anty"
-      width="1032"
-      height="466"
+      width={182}
+      densities={[1, 2]}
+      format="webp"
       loading="lazy"
     />
     {

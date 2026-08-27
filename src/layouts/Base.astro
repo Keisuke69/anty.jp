@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { site, contactFormEnabled } from "../site-config";
+import logoAnty from "../assets/images/logo-anty.png";
 
 interface Props {
   title?: string;
@@ -24,7 +25,8 @@ const organizationJsonLd = {
   name: site.name,
   alternateName: site.nameEn,
   url: site.url,
-  logo: `${site.url}/images/logo-anty.png`,
+  // astro:assets 管理に伴いハッシュ付きURLになるため、ビルド後のURLから組み立てる
+  logo: new URL(logoAnty.src, site.url).href,
   // フォーム運用中は構造化データにもメールアドレスを載せない
   ...(contactFormEnabled ? {} : { email: site.email }),
   contactPoint: {

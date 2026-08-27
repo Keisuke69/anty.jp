@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import styles from "./Header.module.css";
 import { nav } from "../site-config";
+import logoAnty from "../assets/images/logo-anty.png";
 
 // 現在ページに該当するナビ項目を濃い茶で示す（事業詳細ページでは「事業内容」）
 const pathname = Astro.url.pathname;
@@ -17,12 +19,14 @@ const activeLabel = pathname.startsWith("/business")
 
 <header class={styles.header}>
   <a href="/" aria-label="株式会社Anty トップへ">
-    <img
+    <Image
       class={styles.logo}
-      src="/images/logo-anty.png"
+      src={logoAnty}
       alt="株式会社Anty"
-      width="1032"
-      height="466"
+      width={182}
+      densities={[1, 2]}
+      format="webp"
+      loading="eager"
     />
   </a>
   <nav class={styles.nav} aria-label="メインナビゲーション">

@@ -1,16 +1,33 @@
 ---
+import { Picture, getImage } from "astro:assets";
 import Base from "../layouts/Base.astro";
 import ContactCta from "../components/ContactCta.astro";
 import styles from "../styles/home.module.css";
 import { site } from "../site-config";
+import photoDetailGold from "../assets/images/photo-detail-gold.jpg";
+
+// LCP画像の表示幅: コンテナ(最大1280px)から --pad-x と額縁(12px+1px)ぶんを引いた値。
+// 600px以上では pad-x が広がるが、sizes は控えめ（大きめ）に見積もる方が安全側。
+const heroWidths = [640, 960, 1280, 1600];
+const heroSizes = "(min-width: 1280px) 1110px, calc(100vw - 74px)";
+
+// <Picture> がAVIF対応ブラウザに配るのと同じ srcset を preload する。
+// URLはビルドでハッシュ付きに変わるため getImage() で解決する。
+const heroPreload = await getImage({
+  src: photoDetailGold,
+  format: "avif",
+  widths: heroWidths,
+});
 ---
 
 <Base path="/">
   <link
     slot="head"
     rel="preload"
-    href="/images/photo-detail-gold.jpg"
     as="image"
+    imagesrcset={heroPreload.srcSet.attribute}
+    imagesizes={heroSizes}
+    type="image/avif"
     fetchpriority="high"
   />
 
@@ -31,12 +48,15 @@ import { site } from "../site-config";
   <section class={styles.photoBand}>
     <div class="container">
       <div class="frame">
-        <img
-          src="/images/photo-detail-gold.jpg"
+        <Picture
+          src={photoDetailGold}
+          formats={["avif"]}
+          fallbackFormat="webp"
+          widths={heroWidths}
+          sizes={heroSizes}
           alt="金の花座にコットンパールを据え、クリスタルとパールの房を重ねたアシンメトリーな耳飾り"
-          width="1600"
-          height="2131"
           class={styles.photoWide}
+          loading="eager"
           fetchpriority="high"
         />
       </div>
