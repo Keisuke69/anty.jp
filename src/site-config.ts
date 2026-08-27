@@ -11,7 +11,7 @@ export const site = {
   // お問い合わせフォームの送信先URL。SSGform や Formspree などのフォーム受付サービスで
   // 発行されたエンドポイント（例: https://ssgform.com/s/xxxxx）を入れると、
   // 全ページのメールアドレス表示がフォームへの案内に切り替わります。空なら従来どおりメール表示。
-  contactFormAction: "",
+  contactFormAction: "https://ssgform.com/s/ZDqEZJCOTqzx",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
   ceo: "西谷 愛",

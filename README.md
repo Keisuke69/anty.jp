@@ -54,6 +54,8 @@ yarn preview # dist/ をローカルで配信して確認する
 
 フォームは素の HTML `<form>` の POST だけで動くので、JavaScript を含めない方針はそのままです。スパム対策として `_gotcha` のハニーポット欄を入れていますが（Formspree はこれで自動で弾きます）、必要ならサービス側の設定（reCAPTCHA など）も併用してください。
 
+送信後のサンキューページは `/contact/thanks/`（`src/pages/contact/thanks.astro`、noindex）です。SSGform 管理画面の「送信後転送URL」に `https://anty.jp/contact/thanks/` を設定すると、送信完了後にこのページへ転送されます。未設定の間は SSGform 標準の完了画面が表示されます。
+
 そのほか。
 
 - 各ページの本文は上の表のファイルに直接書いています。文章を直すならそこです。
