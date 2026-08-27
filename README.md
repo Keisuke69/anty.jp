@@ -36,6 +36,7 @@ yarn preview # dist/ をローカルで配信して確認する
 | 変えたいもの | 項目 |
 | --- | --- |
 | 会社名、設立、代表者、所在地、メールアドレス | `site` の各項目 |
+| お問い合わせフォームの送信先 | `contactFormAction`（下の「お問い合わせフォーム」を参照） |
 | 資本金、決算期、電話番号 | `capital`、`fiscalYearEnd`、`phone`（空にすると会社概要から行ごと消えます） |
 | 公式オンラインストアのリンク | `store` |
 | minne と Creema のリンク | `shops` |
@@ -43,6 +44,17 @@ yarn preview # dist/ をローカルで配信して確認する
 | 定款上の事業内容 | `purposes` |
 | グローバルナビの項目と順番 | `nav` |
 | GA4 の測定ID、Search Console の確認コード | `gaId`、`googleSiteVerification` |
+
+### お問い合わせフォーム
+
+お問い合わせは、メールアドレスを掲載する代わりにフォームで受け付けられます。HTMLフォームの POST を受けてメール通知してくれるサービス（[SSGform](https://ssgform.com/)、[Formspree](https://formspree.io/) など）でエンドポイントを発行し、そのURLを `src/site-config.ts` の `contactFormAction` に入れてください。
+
+- `contactFormAction` にURLを入れると: お問い合わせページにフォームが表示され、メールアドレスの掲載（お問い合わせページ、会社概要、各ページ末尾の問い合わせ帯、構造化データ）がすべてフォームへの案内に切り替わります。
+- 空のままなら: これまでどおり `email` のメールアドレスを表示します。
+
+フォームは素の HTML `<form>` の POST だけで動くので、JavaScript を含めない方針はそのままです。スパム対策として `_gotcha` のハニーポット欄を入れていますが（Formspree はこれで自動で弾きます）、必要ならサービス側の設定（reCAPTCHA など）も併用してください。
+
+送信後のサンキューページは `/contact/thanks/`（`src/pages/contact/thanks.astro`、noindex）です。SSGform 管理画面の「送信後転送URL」に `https://anty.jp/contact/thanks/` を設定すると、送信完了後にこのページへ転送されます。未設定の間は SSGform 標準の完了画面が表示されます。
 
 そのほか。
 

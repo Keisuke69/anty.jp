@@ -1,0 +1,42 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import styles from "../../styles/contact-thanks.module.css";
+
+// お問い合わせフォーム送信後のサンキューページ。
+// SSGform 管理画面の「送信後転送URL」に https://anty.jp/contact/thanks/ を設定すると、
+// 送信完了後にこのページへ戻ってくる。フォームを経由しない直接アクセスも想定した文面にしている。
+---
+
+<Base
+  title="送信完了"
+  description="お問い合わせを受け付けました。内容を確認のうえ、数日以内にご返信します。"
+  path="/contact/thanks/"
+  noindex
+>
+  <Breadcrumb
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "お問い合わせ", href: "/contact/" },
+      { label: "送信完了" },
+    ]}
+  />
+
+  <PageHeader
+    eyebrow="Thank you"
+    title="送信ありがとうございました"
+    lead="お問い合わせを受け付けました。内容を確認のうえ、数日以内にメールでご返信します。"
+  />
+
+  <section class={styles.thanks}>
+    <div class="container">
+      <div class={styles.card}>
+        <p class={styles.note}>
+          数日たっても返信が届かない場合は、お手数ですが迷惑メールフォルダに振り分けられていないかご確認ください。
+        </p>
+        <a class="textLink" href="/"><span>TOPへ戻る</span></a>
+      </div>
+    </div>
+  </section>
+</Base>

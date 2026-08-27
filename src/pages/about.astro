@@ -4,7 +4,7 @@ import Breadcrumb from "../components/Breadcrumb.astro";
 import PageHeader from "../components/PageHeader.astro";
 import ContactCta from "../components/ContactCta.astro";
 import styles from "../styles/about.module.css";
-import { site } from "../site-config";
+import { site, contactFormEnabled } from "../site-config";
 
 // 値が入っている項目だけを表示する（資本金などは site-config.ts に追記すると出ます）
 const rows = [
@@ -45,9 +45,17 @@ const rows = [
         <div>
           <dt>お問い合わせ</dt>
           <dd>
-            <a class={styles.mailLink} href={`mailto:${site.email}`}>
-              {site.email}
-            </a>
+            {
+              contactFormEnabled ? (
+                <a class={styles.mailLink} href="/contact/">
+                  お問い合わせフォーム
+                </a>
+              ) : (
+                <a class={styles.mailLink} href={`mailto:${site.email}`}>
+                  {site.email}
+                </a>
+              )
+            }
           </dd>
         </div>
         <div>

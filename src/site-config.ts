@@ -6,7 +6,12 @@ export const site = {
   url: "https://anty.jp",
   description:
     "株式会社Antyは、アンティーク調ハンドメイドアクセサリーの製作・販売と、ITシステム・ソフトウェアプロダクトの技術支援を行っています。パールやクリスタルを使った右左で違うアシンメトリーな耳飾りを、横浜から。",
+  // 問い合わせ先メールアドレス。contactFormAction が空の間だけサイトに表示されるフォールバック。
   email: "corporate@anty.jp",
+  // お問い合わせフォームの送信先URL。SSGform や Formspree などのフォーム受付サービスで
+  // 発行されたエンドポイント（例: https://ssgform.com/s/xxxxx）を入れると、
+  // 全ページのメールアドレス表示がフォームへの案内に切り替わります。空なら従来どおりメール表示。
+  contactFormAction: "https://ssgform.com/s/ZDqEZJCOTqzx",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
   ceo: "西谷 愛",
@@ -58,6 +63,9 @@ export const site = {
     "前各号に附帯関連する一切の事業",
   ],
 };
+
+// フォーム運用中かどうか。表示の切り替えはすべてこのフラグを見る。
+export const contactFormEnabled = Boolean(site.contactFormAction);
 
 // ヘッダー・フッター共通のナビ。「事業内容」はトップの事業セクションへ送る。
 export const nav = [
