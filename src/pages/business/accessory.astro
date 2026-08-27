@@ -4,6 +4,21 @@ import Breadcrumb from "../../components/Breadcrumb.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import styles from "../../styles/business-accessory.module.css";
 import { site } from "../../site-config";
+
+// テクノロジー事業ページと同じ形式のService。Organization は Base.astro の @id を参照する
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "アンティーク調ハンドメイドアクセサリーの製作・販売",
+  serviceType: [
+    "ハンドメイドアクセサリーの製作・販売",
+    "アクセサリーの卸・お取り扱い",
+    "イベント出展・ポップアップストア",
+  ],
+  provider: { "@id": `${site.url}/#organization` },
+  brand: { "@type": "Brand", name: site.shortName },
+  url: `${site.url}/business/accessory/`,
+};
 ---
 
 <Base
@@ -228,4 +243,10 @@ import { site } from "../../site-config";
       </div>
     </div>
   </section>
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(serviceJsonLd)}
+  />
 </Base>
