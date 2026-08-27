@@ -40,7 +40,6 @@ yarn preview # dist/ をローカルで配信して確認する
 | 公式オンラインストアのリンク | `store` |
 | minne と Creema のリンク | `shops` |
 | Instagram のリンク | `instagram` |
-| 「次の出展」の告知（アクセサリー事業ページ） | `nextEvent`（`null` の間はプレースホルダ表示） |
 | 定款上の事業内容 | `purposes` |
 | グローバルナビの項目と順番 | `nav` |
 | GA4 の測定ID、Search Console の確認コード | `gaId`、`googleSiteVerification` |

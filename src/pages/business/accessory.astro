@@ -224,24 +224,6 @@ import { site } from "../../site-config";
             </strong>
             <span class={styles.instagramNote}>{site.instagram.description}</span>
           </a>
-          {
-            site.nextEvent ? (
-              <div class={styles.nextEvent}>
-                <span class={styles.nextEventLabel}>次の出展</span>
-                <p class={styles.nextEventText}>
-                  {site.nextEvent.name}／{site.nextEvent.venue}／
-                  {site.nextEvent.dates}
-                </p>
-              </div>
-            ) : (
-              <div class={`${styles.nextEvent} ${styles.nextEventPlaceholder}`}>
-                <span class={styles.nextEventLabel}>次の出展</span>
-                <p class={styles.nextEventText}>
-                  次の出展は未定です。決まり次第、こちらとInstagramでお知らせします。
-                </p>
-              </div>
-            )
-          }
         </div>
       </div>
     </div>

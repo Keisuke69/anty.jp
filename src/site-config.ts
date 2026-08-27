@@ -45,9 +45,6 @@ export const site = {
     url: "https://www.instagram.com/anty.accessory/",
     description: "出展予定・新作",
   },
-  // 「次の出展」。決まったら { name, venue, dates } を入れると出展枠に表示されます。
-  // 空（null）の間はプレースホルダを表示。
-  nextEvent: null as { name: string; venue: string; dates: string } | null,
   // アクセス解析。GA4の測定IDは本番ビルドのときだけ埋め込みます（yarn dev では計測しない）。
   // Search Consoleの所有権をmetaタグで確認するときは、発行された確認コードをここに入れます。
   // DNSのTXTレコードで確認済みなら空のままで構いません。どちらも空ならタグごと出力しません。
