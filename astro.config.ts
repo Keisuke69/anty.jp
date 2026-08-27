@@ -6,4 +6,8 @@ export default defineConfig({
   trailingSlash: "always",
   // /about/index.html の形で書き出す
   build: { format: "directory" },
+  // 旧URL。リニューアルで /business/accessory/ に改名した
+  redirects: {
+    "/business/handmade/": "/business/accessory/",
+  },
 });

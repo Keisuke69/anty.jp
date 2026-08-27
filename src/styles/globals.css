@@ -1,38 +1,56 @@
 :root {
-  /* Color */
-  --bg: #fbf8f4;
-  --bg-alt: #f4efe8;
-  --surface: #ffffff;
-  --text: #22201d;
-  --text-muted: #6d665e;
-  --border: #e6ddd1;
-  --accent: #9a4b39; /* ブランドロゴのテラコッタ */
-  --accent-dark: #7d3a2b;
-  --accent-soft: #f6ebe6;
-  --ink: #2c3f4d; /* テクノロジー事業のアクセント */
-  --ink-soft: #eaeef1;
-  --gold: #b9944f;
+  /* Color — Carte デザイントークン（ハンドオフの Design Tokens を転記） */
+  --paper: #fbf7ee; /* 紙（ページ地） */
+  --paper-band: #f5efe1; /* 紙・淡い区画 */
+  --paper-card: #fffdf8; /* 額縁内・カード地 */
+  --rule: #e3d9c4; /* 罫線（標準） */
+  --rule-soft: #ece3d2; /* 罫線（淡い・箇条書き下線） */
+  --rule-frame: #e0d5bd; /* 写真額縁の内枠 */
+  --rule-deco: #d9cbae; /* 飾り線 */
+  --text: #322c24; /* 本文（濃） */
+  --heading: #2a251e; /* 見出し（最濃） */
+  --text-sub: #6d6353; /* 本文（副） */
+  --text-note: #8f8571; /* 補足・キャプション */
+  --text-weak: #a0937a; /* ラベル・弱いテキスト */
+  --gold: #a98b52; /* ブランド金 */
+  --brown: #6f5233; /* ブランド茶 */
+  --dark-heading: #f6efe0; /* 濃地上の見出し */
+  --dark-text: #e4d9c1; /* 濃地上の本文 */
+  --dark-label: #d6c39b; /* 濃地上の英字ラベル */
+  --dark-border: #b79a63; /* 濃地上のボーダー */
+  --dark-button-text: #f0e6d2;
+  --copyright: #a08f74;
 
   /* Type */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans",
-    "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic Medium", "Segoe UI",
-    Roboto, sans-serif;
-  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP",
-    Georgia, serif;
+  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  --font-en: "Cormorant Garamond", serif;
+  --font-sans: "Noto Sans JP", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
 
   /* Layout */
-  --container: 1080px;
-  --radius: 14px;
-  --radius-sm: 8px;
-  --shadow: 0 18px 40px -28px rgba(34, 32, 29, 0.45);
+  --container: 1280px;
+  --pad-x: 72px;
 
   color-scheme: light;
+}
+
+@media (max-width: 1279px) {
+  :root {
+    --pad-x: 40px;
+  }
+}
+
+@media (max-width: 599px) {
+  :root {
+    --pad-x: 24px;
+  }
 }
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  border-radius: 0; /* 角丸は使わない。誌面・台紙の直線的な印象が方向性の核 */
 }
 
 html {
@@ -40,38 +58,35 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--font-sans);
-  font-size: 16px;
-  line-height: 1.85;
-  font-feature-settings: "palt" 1;
-  -webkit-font-smoothing: antialiased;
-  /* 「ー」や句読点が行頭に来ないようにする（対応ブラウザでは文節で改行） */
-  line-break: strict;
-  word-break: auto-phrase;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
-h1,
-h2,
-h3,
-h4 {
+body {
   margin: 0;
-  line-height: 1.45;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.95;
+  font-feature-settings: "palt" 1;
+}
+
+@media (max-width: 599px) {
+  body {
+    font-size: 15px;
+  }
 }
 
 p {
-  margin: 0;
+  text-wrap: pretty;
 }
 
-ul,
-ol {
-  margin: 0;
-  padding: 0;
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 a {
@@ -80,137 +95,193 @@ a {
 }
 
 a:hover {
+  color: var(--brown);
   text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* ---------- レイアウトプリミティブ ---------- */
-
-.container {
-  width: 100%;
-  max-width: var(--container);
-  margin-inline: auto;
-  padding-inline: 24px;
-}
-
-.section {
-  padding-block: 88px;
-}
-
-.section--tight {
-  padding-block: 64px;
-}
-
-.section--alt {
-  background: var(--bg-alt);
-}
-
-.eyebrow {
-  display: block;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin-bottom: 14px;
-}
-
-.sectionTitle {
-  font-size: clamp(24px, 3.4vw, 32px);
-}
-
-.lead {
-  margin-top: 12px;
-  font-size: 17px;
-  color: var(--text-muted);
-  max-width: 40em;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
 }
 
 .skipLink {
   position: absolute;
   left: -9999px;
   top: 0;
-  background: var(--text);
-  color: var(--bg);
-  padding: 10px 16px;
-  z-index: 100;
+  background: var(--paper-card);
+  color: var(--brown);
+  padding: 10px 18px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  z-index: 10;
 }
 
 .skipLink:focus {
-  left: 8px;
-  top: 8px;
+  left: 0;
 }
 
-/* ---------- ボタン ---------- */
+.container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+/* 英字セクションラベル */
+.eyebrow {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 12.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* No. ラベル（作品・サービス番号） */
+.noLabel {
+  display: block;
+  font-family: var(--font-en);
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+
+/* セクション見出し（標準 29px、--lg で 31px） */
+.sectionTitle {
+  margin: 14px 0 0;
+  font-size: 29px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--heading);
+  line-height: 1.7;
+}
+
+.sectionTitle--lg {
+  font-size: 31px;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 599px) {
+  .sectionTitle {
+    font-size: 22px;
+  }
+
+  .sectionTitle--lg {
+    font-size: 24px;
+  }
+}
+
+/* 中央揃えの見出しブロック */
+.sectionHead {
+  text-align: center;
+}
+
+.sectionLead {
+  margin: 16px auto 0;
+  max-width: 32em;
+  font-size: 15px;
+  line-height: 2.15;
+  color: var(--text-sub);
+}
+
+/* 写真の額縁。写真は必ずこの中に置く（台紙に載せた印象がデザインの要） */
+.frame {
+  padding: 12px;
+  border: 1px solid var(--rule);
+  background: var(--paper-card);
+}
+
+.frame--soft {
+  border-color: var(--rule-frame);
+}
+
+.frame img {
+  display: block;
+  width: 100%;
+}
+
+/* 金の下線つきテキストリンク */
+.textLink {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--brown);
+}
+
+.textLink > span {
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 4px;
+}
+
+/* 罫線区切りの定義リスト（--def-term で用語列の幅を調整） */
+.defList {
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+
+.defList > div {
+  display: grid;
+  grid-template-columns: var(--def-term, 150px) 1fr;
+  gap: 24px;
+  padding: 18px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.defList > div:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.defList dt {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  color: var(--text-note);
+  line-height: 2.05;
+}
+
+.defList dd {
+  margin: 0;
+  font-size: 15px;
+  line-height: 2.05;
+}
+
+@media (max-width: 599px) {
+  .defList > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
+
+/* 濃地バンド上のボタン */
+.buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 32px;
+}
 
 .button {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 13px 24px;
-  border-radius: 999px;
-  font-size: 15px;
-  font-weight: 600;
-  background: var(--accent);
-  color: #fff;
-  border: 1px solid var(--accent);
-  transition: background-color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.button:hover {
-  background: var(--accent-dark);
-  border-color: var(--accent-dark);
-  text-decoration: none;
-  transform: translateY(-1px);
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--paper);
+  color: var(--brown);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  letter-spacing: 0.08em;
 }
 
 .button--ghost {
+  padding: 16px 32px;
   background: transparent;
-  color: var(--text);
-  border-color: var(--border);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-button-text);
+}
+
+.button:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
 }
 
 .button--ghost:hover {
-  background: var(--surface);
-  border-color: var(--text-muted);
-  color: var(--text);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0.01ms !important;
-    animation-duration: 0.01ms !important;
-  }
-}
-
-@media (max-width: 640px) {
-  body {
-    line-height: 1.8;
-  }
-
-  .section {
-    padding-block: 60px;
-  }
-
-  .section--tight {
-    padding-block: 48px;
-  }
+  color: var(--dark-heading);
 }

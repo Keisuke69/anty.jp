@@ -1,11 +1,14 @@
 ---
 import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
 import PageHeader from "../../components/PageHeader.astro";
 import ContactCta from "../../components/ContactCta.astro";
 import styles from "../../styles/business-technology.module.css";
+import { site } from "../../site-config";
 
 const services = [
   {
+    no: "No. 01",
     title: "技術顧問・アドバイザリー",
     text: "継続的に関わり、技術と経営の判断を支えます。",
     items: [
@@ -15,6 +18,7 @@ const services = [
     ],
   },
   {
+    no: "No. 02",
     title: "コンサルティング",
     text: "つくる前の判断を一緒に整理します。",
     items: [
@@ -24,6 +28,7 @@ const services = [
     ],
   },
   {
+    no: "No. 03",
     title: "開発・開発支援",
     text: "顧問・アドバイザリーが中心ですが、開発そのものもお引き受けします。",
     items: [
@@ -82,33 +87,57 @@ const areas = [
   "生成AIを前提とした開発体制づくり",
   "エンジニア向けプロダクト・イベントの企画支援",
 ];
+
+const serviceJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "技術顧問・アドバイザリー・開発支援",
+  serviceType: services.map((service) => service.title),
+  provider: {
+    "@type": "Organization",
+    name: site.name,
+    url: site.url,
+  },
+  url: `${site.url}/business/technology/`,
+};
 ---
 
 <Base
-  title="テクノロジー事業"
-  description="株式会社AntyのITシステム・ソフトウェアプロダクト事業について。技術顧問・アドバイザリー、コンサルティング、開発、開発支援を行っています。"
+  title="テクノロジー事業｜技術顧問・アドバイザリー・開発支援"
+  description="株式会社Antyのテクノロジー事業。技術顧問・アドバイザリーを中心に、ITシステムとソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。横浜・桜木町。"
   path="/business/technology/"
 >
-  <PageHeader
-    eyebrow="Technology"
-    title="ITシステム・ソフトウェア開発事業"
-    lead="技術顧問・アドバイザリーを中心に、ITシステムやソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。"
+  <Breadcrumb
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "事業内容", href: "/#business" },
+      { label: "テクノロジー" },
+    ]}
   />
 
-  <section class="section">
+  <PageHeader
+    eyebrow="Technology"
+    title="テクノロジー事業"
+    lead="技術顧問・アドバイザリーを中心に、ITシステムとソフトウェアプロダクトのコンサルティング、開発、開発支援を行っています。手を動かしてつくる仕事を続けている立場から、決めごとの段階からご一緒します。"
+  />
+
+  <section class={styles.services}>
     <div class="container">
-      <span class="eyebrow">Services</span>
-      <h2 class="sectionTitle">できること</h2>
-      <p class="lead">
-        継続的な顧問契約から、単発のご相談、開発チームに入っての支援まで、必要な工程に必要なかたちで関わります。
-      </p>
+      <div class={`sectionHead ${styles.servicesHead}`}>
+        <span class="eyebrow">Services</span>
+        <h2 class="sectionTitle sectionTitle--lg">できること</h2>
+        <p class="sectionLead">
+          継続的な顧問契約から、単発のご相談、開発チームに入っての支援まで、必要な工程に必要なかたちで関わります。
+        </p>
+      </div>
       <div class={styles.serviceGrid}>
         {
           services.map((service) => (
             <div class={styles.service}>
-              <h3>{service.title}</h3>
-              <p>{service.text}</p>
-              <ul>
+              <span class="noLabel">{service.no}</span>
+              <h3 class={styles.serviceTitle}>{service.title}</h3>
+              <p class={styles.serviceText}>{service.text}</p>
+              <ul class={styles.serviceList}>
                 {service.items.map((item) => (
                   <li>{item}</li>
                 ))}
@@ -120,25 +149,29 @@ const areas = [
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class={styles.experience}>
     <div class="container">
-      <span class="eyebrow">Experience</span>
-      <h2 class="sectionTitle">これまでの経験</h2>
-      <div class={styles.experience}>
-        <p>
-          国内SIerで金融系システムの開発に携わったのち、自社クラウドサービスのアーキテクチャ設計、アプリケーション開発、開発チームのマネジメントを担当。その後、外資系クラウドベンダーの日本法人でソリューションアーキテクトとして、スタートアップから大企業まで、さまざまな業種・規模のクラウドアーキテクチャ設計と課題解決の支援に従事しました。スタートアップの取締役CTOを経て、現在は事業会社の役員や技術責任者を務めながら、複数社の技術顧問・アドバイザリーを担当しています。
-        </p>
-        <p>
-          顧問として支援してきたのは、エンジニア向けのプロダクトやサービスを展開する事業者、クラウドインフラ領域の事業者、エンジニアリングを本業としない企業の新規事業など。創業初期から伴走するケースが多く、組織規模は数人から数十人が中心です。技術的な壁打ち相手として入り、事業企画や組織の課題、人材育成、経営判断への助言へと関わりが広がっていく形が多くなっています。
-        </p>
+      <div class={styles.experienceGrid}>
+        <div>
+          <span class="eyebrow">Experience</span>
+          <h2 class="sectionTitle">これまでの経験</h2>
+        </div>
+        <div class={styles.experienceBody}>
+          <p>
+            国内SIerで金融系システムの開発に携わったのち、自社クラウドサービスのアーキテクチャ設計、アプリケーション開発、開発チームのマネジメントを担当。その後、外資系クラウドベンダーの日本法人でソリューションアーキテクトとして、スタートアップから大企業まで、さまざまな業種・規模のクラウドアーキテクチャ設計と課題解決の支援に従事しました。スタートアップの取締役CTOを経て、現在は事業会社の役員や技術責任者を務めながら、複数社の技術顧問・アドバイザリーを担当しています。
+          </p>
+          <p>
+            顧問として支援してきたのは、エンジニア向けのプロダクトやサービスを展開する事業者、クラウドインフラ領域の事業者、エンジニアリングを本業としない企業の新規事業など。創業初期から伴走するケースが多く、組織規模は数人から数十人が中心です。技術的な壁打ち相手として入り、事業企画や組織の課題、人材育成、経営判断への助言へと関わりが広がっていく形が多くなっています。
+          </p>
+        </div>
       </div>
 
       <div class={styles.strengthGrid}>
         {
           strengths.map((strength) => (
             <div class={styles.strength}>
-              <h3>{strength.title}</h3>
-              <p>{strength.text}</p>
+              <h3 class={styles.strengthTitle}>{strength.title}</h3>
+              <p class={styles.strengthText}>{strength.text}</p>
             </div>
           ))
         }
@@ -146,37 +179,51 @@ const areas = [
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <span class="eyebrow">Areas</span>
-      <h2 class="sectionTitle">対応領域</h2>
+  <section class={styles.areas}>
+    <div class={`container ${styles.areasGrid}`}>
+      <div>
+        <span class="eyebrow">Areas</span>
+        <h2 class="sectionTitle">対応領域</h2>
+        <p class={styles.areasText}>
+          領域をまたぐご相談も、切り分けからご一緒します。
+        </p>
+      </div>
       <ul class={styles.areaList}>
         {areas.map((area) => <li>{area}</li>)}
       </ul>
     </div>
   </section>
 
-  <section class="section section--alt">
-    <div class="container">
-      <span class="eyebrow">Flow</span>
-      <h2 class="sectionTitle">ご相談の流れ</h2>
-      <ol class={styles.flow}>
+  <section class={styles.flow}>
+    <div class={`container ${styles.flowGrid}`}>
+      <div>
+        <span class="eyebrow">How we work</span>
+        <h2 class="sectionTitle">ご相談の流れ</h2>
+        <p class={styles.flowText}>
+          まずは今の状況をお聞かせください。関わり方と範囲は、ご相談のうえで決めています。
+        </p>
+      </div>
+      <dl class="defList">
         {
           flow.map((step) => (
-            <li>
-              <div>
-                <h3>{step.title}</h3>
-                <p>{step.text}</p>
-              </div>
-            </li>
+            <div>
+              <dt>{step.title}</dt>
+              <dd>{step.text}</dd>
+            </div>
           ))
         }
-      </ol>
+      </dl>
     </div>
   </section>
 
   <ContactCta
-    title="開発・技術支援のご相談"
-    text="要件が固まっていない段階でも、まずはご状況をお聞かせください。"
+    title="技術のご相談"
+    text="体制づくりの相談から、短期の技術レビューまで。要件が固まっていない段階でも、まずはご状況をお聞かせください。"
+  />
+
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(serviceJsonLd)}
   />
 </Base>

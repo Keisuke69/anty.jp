@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import PageHeader from "../components/PageHeader.astro";
 import styles from "../styles/contact.module.css";
 import { site } from "../site-config";
@@ -36,16 +37,18 @@ const checklist = [
   description="株式会社Antyへのお問い合わせ。商品・卸のご相談、システム開発や技術支援のご相談は corporate@anty.jp までご連絡ください。"
   path="/contact/"
 >
+  <Breadcrumb items={[{ label: "TOP", href: "/" }, { label: "お問い合わせ" }]} />
+
   <PageHeader
     eyebrow="Contact"
     title="お問い合わせ"
     lead="どちらの事業についても、メールで承っています。数日以内にご返信します。"
   />
 
-  <section class="section">
+  <section class={styles.mail}>
     <div class="container">
       <div class={styles.mailCard}>
-        <p class={styles.mailLabel}>Email</p>
+        <span class={styles.mailLabel}>Email</span>
         <a class={styles.mailAddress} href={`mailto:${site.email}`}>
           {site.email}
         </a>
@@ -54,27 +57,32 @@ const checklist = [
     </div>
   </section>
 
-  <section class="section section--tight section--alt">
+  <section class={styles.topics}>
     <div class="container">
-      <span class="eyebrow">Topics</span>
-      <h2 class="sectionTitle">お問い合わせの例</h2>
+      <div class={`sectionHead ${styles.topicsHead}`}>
+        <span class="eyebrow">Topics</span>
+        <h2 class="sectionTitle">お問い合わせの例</h2>
+      </div>
       <div class={styles.topicGrid}>
         {
           topics.map((topic) => (
             <div class={styles.topic}>
-              <h3>{topic.title}</h3>
-              <p>{topic.text}</p>
+              <h3 class={styles.topicTitle}>{topic.title}</h3>
+              <p class={styles.topicText}>{topic.text}</p>
             </div>
           ))
         }
       </div>
       <p class={styles.shopNote}>
         商品に関するご質問は、
+        <a href={site.store.url} target="_blank" rel="noopener">
+          オンラインストア
+        </a>
         {
-          site.shops.map((shop, index) => (
+          site.shops.map((shop) => (
             <span>
-              {index > 0 ? "・" : ""}
-              <a href={shop.url} target="_blank" rel="noopener noreferrer">
+              ・
+              <a href={shop.url} target="_blank" rel="noopener">
                 {shop.name}
               </a>
             </span>
@@ -85,10 +93,12 @@ const checklist = [
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container">
-      <span class="eyebrow">Before you write</span>
-      <h2 class="sectionTitle">お書き添えいただきたいこと</h2>
+  <section class={styles.before}>
+    <div class={`container ${styles.beforeGrid}`}>
+      <div>
+        <span class="eyebrow">Before you write</span>
+        <h2 class="sectionTitle">お書き添えいただきたいこと</h2>
+      </div>
       <ul class={styles.checkList}>
         {checklist.map((item) => <li>{item}</li>)}
       </ul>

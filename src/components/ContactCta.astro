@@ -1,22 +1,28 @@
 ---
 import styles from "./ContactCta.module.css";
+import { site } from "../site-config";
 
+// 濃い茶のお問い合わせ帯。TOPと各事業ページの末尾で共通。
 interface Props {
+  eyebrow?: string;
   title: string;
   text: string;
+  id?: string;
 }
 
-const { title, text } = Astro.props;
+const { eyebrow, title, text, id } = Astro.props;
 ---
 
-<section class={styles.section}>
+<section class={styles.cta} id={id}>
   <div class="container">
-    <div class={styles.cta}>
-      <div class={styles.text}>
-        <h2>{title}</h2>
-        <p>{text}</p>
-      </div>
+    {eyebrow && <span class={styles.eyebrow}>{eyebrow}</span>}
+    <h2 class={styles.title}>{title}</h2>
+    <p class={styles.text}>{text}</p>
+    <div class="buttonRow">
       <a class="button" href="/contact/">お問い合わせ</a>
+      <a class="button button--ghost" href={`mailto:${site.email}`}>
+        {site.email}
+      </a>
     </div>
   </div>
 </section>
