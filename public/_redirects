@@ -1,0 +1,3 @@
+# Cloudflare Workers（静的アセット配信）用のリダイレクト。Vercel では vercel.json の redirects が同じ役割を担う。
+# sitemap は @astrojs/sitemap の導入で sitemap-index.xml に変わった。Search Console の登録済みURLを生かすための301。
+/sitemap.xml /sitemap-index.xml 301
