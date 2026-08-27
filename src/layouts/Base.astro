@@ -20,7 +20,7 @@ const organizationJsonLd = {
   name: site.name,
   alternateName: site.nameEn,
   url: site.url,
-  logo: `${site.url}/favicon.ico`,
+  logo: `${site.url}/images/logo-anty.png`,
   email: site.email,
   foundingDate: site.founded,
   founder: { "@type": "Person", name: site.ceo },
@@ -31,7 +31,11 @@ const organizationJsonLd = {
     addressLocality: site.address.locality,
     streetAddress: site.address.street,
   },
-  sameAs: [...site.shops.map((shop) => shop.url), site.instagram.url],
+  sameAs: [
+    site.store.url,
+    site.instagram.url,
+    ...site.shops.map((shop) => shop.url),
+  ],
 };
 
 // 開発中のアクセスをGA4に混ぜたくないので、本番ビルドのときだけタグを出す。

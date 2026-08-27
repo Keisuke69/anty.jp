@@ -1,0 +1,48 @@
+---
+import styles from "./Breadcrumb.module.css";
+import { site } from "../site-config";
+
+// マークアップと構造化データ（BreadcrumbList）を一致させる。
+// 最後の項目が現在地。href を省略した項目はリンクにしない。
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  items: Crumb[];
+}
+
+const { items } = Astro.props;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: items.map((item, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: item.label,
+    ...(item.href ? { item: new URL(item.href, site.url).href } : {}),
+  })),
+};
+---
+
+<nav aria-label="パンくず" class={styles.breadcrumb}>
+  <ol class="container">
+    {
+      items.map((item, index) => (
+        <>
+          {index > 0 && <li aria-hidden="true">／</li>}
+          <li class={index === items.length - 1 ? styles.current : undefined}>
+            {item.href && index !== items.length - 1 ? (
+              <a href={item.href}>{item.label}</a>
+            ) : (
+              item.label
+            )}
+          </li>
+        </>
+      ))
+    }
+  </ol>
+</nav>
+<script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />

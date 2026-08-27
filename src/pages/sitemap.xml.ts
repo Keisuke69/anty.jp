@@ -3,7 +3,7 @@ import { site } from "../site-config";
 
 const paths = [
   "/",
-  "/business/handmade/",
+  "/business/accessory/",
   "/business/technology/",
   "/about/",
   "/contact/",

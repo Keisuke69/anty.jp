@@ -1,0 +1,326 @@
+/* 写真帯 */
+.photoBand {
+  padding-top: 44px;
+}
+
+.photoWide {
+  aspect-ratio: 16 / 5;
+  object-fit: cover;
+  object-position: center 50%;
+}
+
+/* コンセプト「三つのとき」 */
+.concept {
+  padding: 80px 0;
+}
+
+.conceptGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.momentList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0;
+}
+
+.momentList li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 20px;
+  padding: 20px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.momentList li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.momentNo {
+  font-family: var(--font-en);
+  font-size: 15px;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+}
+
+.momentText {
+  font-size: 17px;
+}
+
+.conceptClose {
+  margin: 26px 0 0;
+  font-size: 15.5px;
+  line-height: 2.2;
+  color: var(--text-sub);
+}
+
+/* 作品 */
+.works {
+  padding: 80px 0;
+  background: var(--paper-band);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.worksHead {
+  margin-bottom: 48px;
+}
+
+.workList {
+  display: grid;
+  gap: 0;
+}
+
+.work {
+  display: grid;
+  grid-template-columns: 420px 1fr;
+  gap: 56px;
+  align-items: center;
+  padding: 44px 0;
+  border-top: 1px solid var(--rule);
+}
+
+.work:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.workReverse {
+  grid-template-columns: 1fr 420px;
+}
+
+.workReverse .workText {
+  text-align: right;
+}
+
+.workReverse .workBody {
+  margin-left: auto;
+}
+
+.workTitle {
+  margin: 10px 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--heading);
+}
+
+.workBody {
+  margin: 18px 0 0;
+  font-size: 15.5px;
+  line-height: 2.2;
+  color: var(--text-sub);
+  max-width: 34em;
+}
+
+.workPhoto {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+.workPhotoGold {
+  object-position: center 40%;
+}
+
+/* 素材と金具 */
+.materials {
+  padding: 88px 0;
+}
+
+.materialsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.materialsText {
+  margin: 20px 0 0;
+  font-size: 15.5px;
+  line-height: 2.15;
+  color: var(--text-sub);
+}
+
+/* 買える場所 */
+.buy {
+  padding-bottom: 88px;
+}
+
+.buyInner {
+  border-top: 1px solid var(--rule);
+  padding-top: 56px;
+}
+
+.buyGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.buyCard {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px 32px;
+  border: 1px solid var(--rule);
+  background: var(--paper-card);
+}
+
+.buyCard:hover {
+  background: #fffefb;
+}
+
+.buyCardPrimary {
+  border-color: var(--gold);
+}
+
+.buyLabel {
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+}
+
+.buyName {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+.buyNamePrimary {
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--brown);
+}
+
+.buyDomain {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--text-note);
+}
+
+.buyDesc {
+  font-size: 14.5px;
+  line-height: 2.05;
+  color: var(--text-sub);
+}
+
+/* 出会える場所 */
+.meet {
+  padding: 80px 0;
+  background: var(--paper-band);
+  border-top: 1px solid var(--rule);
+}
+
+.meetGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.meetPhoto {
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.meetText {
+  margin: 20px 0 0;
+  font-size: 15.5px;
+  line-height: 2.2;
+  color: var(--text-sub);
+}
+
+.meetCards {
+  display: grid;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.instagramCard {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 22px 26px;
+  border: 1px solid var(--gold);
+  background: var(--paper-card);
+}
+
+.instagramCard:hover {
+  background: #fffefb;
+}
+
+.instagramName {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--brown);
+}
+
+.instagramNote {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--text-note);
+}
+
+@media (max-width: 899px) {
+  .conceptGrid,
+  .materialsGrid,
+  .meetGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* 作品記事は「写真 → テキスト」の順に統一し、右揃えは解除 */
+  .work,
+  .workReverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .workReverse .workText {
+    text-align: left;
+    order: 2;
+  }
+
+  .workReverse .workBody {
+    margin-left: 0;
+  }
+
+  .workReverse .frame {
+    order: 1;
+  }
+
+  .buyGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 599px) {
+  .photoWide {
+    aspect-ratio: 4 / 3;
+  }
+
+  .concept,
+  .works,
+  .meet {
+    padding: 56px 0;
+  }
+
+  .materials {
+    padding: 64px 0;
+  }
+
+  .buy {
+    padding-bottom: 64px;
+  }
+}

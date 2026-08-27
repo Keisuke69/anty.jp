@@ -5,7 +5,7 @@ export const site = {
   shortName: "Anty",
   url: "https://anty.jp",
   description:
-    "株式会社Antyは、ハンドメイドアクセサリーの企画・製造・販売と、ITシステム・ソフトウェアプロダクトのコンサルティング・開発・開発支援を行う会社です。",
+    "株式会社Antyは、アンティーク調ハンドメイドアクセサリーの製作・販売と、ITシステム・ソフトウェアプロダクトの技術支援を行っています。パールやクリスタルを使った右左で違うアシンメトリーな耳飾りを、横浜から。",
   email: "corporate@anty.jp",
   founded: "2021-02-24",
   foundedLabel: "2021年2月24日",
@@ -20,24 +20,30 @@ export const site = {
     street: "桜木町1-101-1 クロスゲート7階",
     full: "神奈川県横浜市中区桜木町1-101-1 クロスゲート7階",
   },
+  // 公式オンラインストア（BASE。自社サイトとは別ドメインなので sameAs で関連付ける）
+  store: {
+    name: "Anty オンラインストア",
+    url: "https://store.anty.jp/",
+    domainLabel: "store.anty.jp",
+  },
   shops: [
     {
       name: "minne",
       url: "https://minne.com/@anty-000",
-      description: "GMOペパボが運営するハンドメイドマーケット",
+      description: "ハンドメイドマーケット",
     },
     {
       name: "Creema",
       url: "https://www.creema.jp/c/anty",
-      description: "クリエイター作品のオンラインマーケット",
+      description: "クリエイター作品のマーケット",
     },
   ],
   // ハンドメイド事業のアカウント。会社全体ではなくアクセサリーの発信用。
   instagram: {
     name: "Instagram",
     handle: "@anty.accessory",
-    url: "https://www.instagram.com/anty.accessory",
-    description: "イベント出展とポップアップストアの予定、新作の紹介",
+    url: "https://www.instagram.com/anty.accessory/",
+    description: "出展予定・新作",
   },
   // アクセス解析。GA4の測定IDは本番ビルドのときだけ埋め込みます（yarn dev では計測しない）。
   // Search Consoleの所有権をmetaタグで確認するときは、発行された確認コードをここに入れます。
@@ -53,9 +59,10 @@ export const site = {
   ],
 };
 
+// ヘッダー・フッター共通のナビ。「事業内容」はトップの事業セクションへ送る。
 export const nav = [
-  { href: "/business/handmade/", label: "ハンドメイド事業" },
-  { href: "/business/technology/", label: "テクノロジー事業" },
+  { href: "/", label: "TOP" },
+  { href: "/#business", label: "事業内容" },
   { href: "/about/", label: "会社概要" },
   { href: "/contact/", label: "お問い合わせ" },
 ];

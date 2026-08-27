@@ -22,12 +22,12 @@ yarn preview # dist/ をローカルで配信して確認する
 | パス | 内容 | ファイル |
 | --- | --- | --- |
 | `/` | トップ | `src/pages/index.astro` |
-| `/business/handmade/` | ハンドメイドアクセサリー事業 | `src/pages/business/handmade.astro` |
-| `/business/technology/` | ITシステム・ソフトウェア開発事業 | `src/pages/business/technology.astro` |
+| `/business/accessory/` | ハンドメイドアクセサリー事業 | `src/pages/business/accessory.astro` |
+| `/business/technology/` | テクノロジー事業 | `src/pages/business/technology.astro` |
 | `/about/` | 会社概要 | `src/pages/about.astro` |
 | `/contact/` | お問い合わせ | `src/pages/contact.astro` |
 
-`src/pages/404.astro` が404ページです。全ページ共通の枠組み（head、ヘッダー、フッター）は `src/layouts/Base.astro` にあり、ヘッダーとフッター、問い合わせへの導線は `src/components/` にあります。
+`src/pages/404.astro` が404ページです。旧URL `/business/handmade/` は `astro.config.ts` の `redirects` で `/business/accessory/` に転送しています。全ページ共通の枠組み（head、ヘッダー、フッター）は `src/layouts/Base.astro` にあり、ヘッダーとフッター、パンくず、問い合わせへの導線は `src/components/` にあります。
 
 ## 内容を変更するとき
 
@@ -37,6 +37,7 @@ yarn preview # dist/ をローカルで配信して確認する
 | --- | --- |
 | 会社名、設立、代表者、所在地、メールアドレス | `site` の各項目 |
 | 資本金、決算期、電話番号 | `capital`、`fiscalYearEnd`、`phone`（空にすると会社概要から行ごと消えます） |
+| 公式オンラインストアのリンク | `store` |
 | minne と Creema のリンク | `shops` |
 | Instagram のリンク | `instagram` |
 | 定款上の事業内容 | `purposes` |

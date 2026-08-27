@@ -1,0 +1,231 @@
+---
+import Base from "../../layouts/Base.astro";
+import Breadcrumb from "../../components/Breadcrumb.astro";
+import PageHeader from "../../components/PageHeader.astro";
+import styles from "../../styles/business-accessory.module.css";
+import { site } from "../../site-config";
+---
+
+<Base
+  title="ハンドメイドアクセサリー事業｜アンティーク調のピアス・イヤリング"
+  description="アンティーク風の他にないデザインで、16kgpや本ロジウムコーティングを使用したピアス、イヤリング、ネックレスをお作りしています。金属アレルギーの方向けのチタン・樹脂・14kgfも多数ご用意しています。"
+  path="/business/accessory/"
+>
+  <Breadcrumb
+    items={[
+      { label: "TOP", href: "/" },
+      { label: "事業内容", href: "/#business" },
+      { label: "ハンドメイドアクセサリー" },
+    ]}
+  />
+
+  <PageHeader
+    eyebrow="Handmade accessory"
+    title="ハンドメイドアクセサリー事業"
+    lead="「誰とも被らない自分を輝かせたい時のアンティーク調アクセサリー」をコンセプトに、パールやクリスタルを使用した右左で違うアシンメトリーなデザインの耳飾りを制作しています。インポートのボタンを使ったブローチやヘアアクセサリー、ネックレス、ブレスレットもご用意しています。"
+  />
+
+  <section class={styles.photoBand}>
+    <div class="container">
+      <div class="frame">
+        <img
+          src="/images/photo-cards-four.jpg"
+          alt="同じ形のアシンメトリーな耳飾りを、シルバー・黒・ゴールド・パールの四色で並べた台紙"
+          width="1600"
+          height="1600"
+          class={styles.photoWide}
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class={styles.concept}>
+    <div class={`container ${styles.conceptGrid}`}>
+      <div>
+        <span class="eyebrow">Concept</span>
+        <h2 class="sectionTitle">三つの「とき」に<br />向けてつくる</h2>
+      </div>
+      <div>
+        <ol class={styles.momentList}>
+          <li>
+            <span class={styles.momentNo}>I</span>
+            <span class={styles.momentText}>アクセサリーを選んで頂くときに。</span>
+          </li>
+          <li>
+            <span class={styles.momentNo}>II</span>
+            <span class={styles.momentText}>開封して頂くときに。</span>
+          </li>
+          <li>
+            <span class={styles.momentNo}>III</span>
+            <span class={styles.momentText}>身に付けて頂くときに。</span>
+          </li>
+        </ol>
+        <p class={styles.conceptClose}>
+          少しでも明るく華やかな気持ちになって頂けるように、心を込めて一点一点丁寧にお作りしています。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class={styles.works}>
+    <div class="container">
+      <div class={`sectionHead ${styles.worksHead}`}>
+        <span class="eyebrow">Works</span>
+        <h2 class="sectionTitle sectionTitle--lg">作品のこと</h2>
+        <p class="sectionLead">
+          すべてを並べるのではなく、いま話したいものだけを置いています。在庫はオンラインストアでご覧ください。
+        </p>
+      </div>
+
+      <div class={styles.workList}>
+        <article class={`${styles.work} ${styles.workReverse}`}>
+          <div class={styles.workText}>
+            <span class="noLabel">No. 01</span>
+            <h3 class={styles.workTitle}>透かしと、粒の輪</h3>
+            <p class={styles.workBody}>
+              古い金具の意匠から起こした透かしの飾りを片方に、金の粒を留めた輪をもう片方に。下がりの雫だけ色を揃えて、左右の形の違いを対として見せています。シルバー、ゴールド、白い雫の三通り。装飾は多いのに、重さは軽いままです。
+            </p>
+          </div>
+          <div class="frame frame--soft">
+            <img
+              src="/images/photo-cards-three.jpg"
+              alt="透かしの飾りと粒の輪を対にしたアシンメトリーな耳飾り。シルバー、ゴールド、白い雫の三色"
+              width="1400"
+              height="1400"
+              class={styles.workPhoto}
+              loading="lazy"
+            />
+          </div>
+        </article>
+        <article class={styles.work}>
+          <div class="frame frame--soft">
+            <img
+              src="/images/photo-detail-gold.jpg"
+              alt="金の花座にコットンパールを据え、クリスタルと細い鎖を垂らした耳飾り"
+              width="1600"
+              height="2131"
+              class={`${styles.workPhoto} ${styles.workPhotoGold}`}
+              loading="lazy"
+            />
+          </div>
+          <div class={styles.workText}>
+            <span class="noLabel">No. 02</span>
+            <h3 class={styles.workTitle}>金の花座と、コットンパール</h3>
+            <p class={styles.workBody}>
+              大ぶりに見えて、実際にはとても軽い一組。コットンパールを金の花座に据え、片方は月と雫、もう片方は細い鎖を長く垂らしています。フォーマルな席に持っていける華やかさと、一日つけていられる軽さの両方を探した結果の形です。
+            </p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class={styles.materials}>
+    <div class={`container ${styles.materialsGrid}`}>
+      <div>
+        <span class="eyebrow">Materials</span>
+        <h2 class="sectionTitle">素材と金具</h2>
+        <p class={styles.materialsText}>
+          輝きが長持ちし、アレルギー反応も出にくい素材を選んでいます。金属アレルギーの方向けの金具も種類多数ご用意していますので、お気軽にご相談ください。
+        </p>
+      </div>
+      <dl class="defList">
+        <div>
+          <dt>金具</dt>
+          <dd>サージカルステンレス／16kgp／本ロジウムコーティング</dd>
+        </div>
+        <div>
+          <dt>アレルギー対応</dt>
+          <dd>チタン／樹脂ピアス・イヤリング／14kgf</dd>
+        </div>
+        <div>
+          <dt>石とパーツ</dt>
+          <dd>パール／クリスタル／ストーン／金属パーツ／インポートのボタン</dd>
+        </div>
+        <div>
+          <dt>つくるもの</dt>
+          <dd>耳飾り（ピアス・イヤリング）／ネックレス／ブレスレット／ブローチ／ヘアアクセサリー</dd>
+        </div>
+        <div>
+          <dt>合わせる場面</dt>
+          <dd>カジュアルな普段使いから、大切なフォーマルな場面まで</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section class={styles.buy}>
+    <div class="container">
+      <div class={styles.buyInner}>
+        <div class="sectionHead">
+          <span class="eyebrow">Where to buy</span>
+          <h2 class="sectionTitle">買える場所</h2>
+        </div>
+        <div class={styles.buyGrid}>
+          <a
+            class={`${styles.buyCard} ${styles.buyCardPrimary}`}
+            href={site.store.url}
+            target="_blank"
+            rel="noopener"
+          >
+            <span class={styles.buyLabel}>公式オンラインストア</span>
+            <strong class={styles.buyNamePrimary}>{site.store.name} ↗</strong>
+            <span class={styles.buyDomain}>{site.store.domainLabel}</span>
+            <span class={styles.buyDesc}>
+              在庫のあるものはこちらから。金具の変更やアレルギー対応のご相談も承ります。
+            </span>
+          </a>
+          {
+            site.shops.map((shop) => (
+              <a
+                class={styles.buyCard}
+                href={shop.url}
+                target="_blank"
+                rel="noopener"
+              >
+                <strong class={styles.buyName}>{shop.name} ↗</strong>
+                <span class={styles.buyDomain}>{shop.description}</span>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class={styles.meet}>
+    <div class={`container ${styles.meetGrid}`}>
+      <div class="frame frame--soft">
+        <img
+          src="/images/photo-booth.jpg"
+          alt="イベント出展のブース。金の織物を背景に、耳飾りとネックレスを並べた台"
+          width="1400"
+          height="1867"
+          class={styles.meetPhoto}
+          loading="lazy"
+        />
+      </div>
+      <div>
+        <span class="eyebrow">Where to meet</span>
+        <h2 class="sectionTitle">出会える場所</h2>
+        <p class={styles.meetText}>
+          写真では伝わらない大きさと軽さがあります。イベント出展とポップアップストアを続けているのは、そのためです。出展の予定はInstagramでお知らせしています。
+        </p>
+        <div class={styles.meetCards}>
+          <a
+            class={styles.instagramCard}
+            href={site.instagram.url}
+            target="_blank"
+            rel="noopener"
+          >
+            <strong class={styles.instagramName}>
+              Instagram {site.instagram.handle} ↗
+            </strong>
+            <span class={styles.instagramNote}>{site.instagram.description}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

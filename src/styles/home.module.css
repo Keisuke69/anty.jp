@@ -1,275 +1,295 @@
-/* ---------- Hero ---------- */
-
+/* ヒーロー（テキスト） */
 .hero {
-  padding-block: 80px 96px;
-  border-bottom: 1px solid var(--border);
-}
-
-.heroInner {
-  display: grid;
-  grid-template-columns: 1.05fr 1fr;
-  align-items: center;
-  gap: 56px;
-}
-
-.heroEyebrow {
-  display: block;
-  font-family: var(--font-serif);
-  font-size: 14px;
-  letter-spacing: 0.22em;
-  color: var(--accent);
-  margin-bottom: 10px;
+  padding-top: 76px;
+  text-align: center;
 }
 
 .heroTitle {
-  font-family: var(--font-serif);
-  font-size: clamp(32px, 5vw, 50px);
-  line-height: 1.3;
-  letter-spacing: 0.04em;
+  margin: 0;
+  font-size: 44px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0.09em;
+  color: var(--heading);
 }
 
-.heroText {
-  margin-top: 24px;
-  color: var(--text-muted);
-  max-width: 34em;
-}
-
-.heroActions {
+.divider {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   margin-top: 32px;
 }
 
-.heroFigure {
-  margin: 0;
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
+.dividerLine {
+  width: 64px;
+  height: 1px;
+  background: var(--rule-deco);
 }
 
-.heroFigure img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.dividerDiamond {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.heroLead {
+  margin: 30px auto 0;
+  max-width: 38em;
+  font-size: 16px;
+  line-height: 2.2;
+  color: var(--text-sub);
+}
+
+/* ヒーロー写真帯 */
+.photoBand {
+  padding-top: 48px;
+}
+
+.photoWide {
+  aspect-ratio: 16 / 5;
   object-fit: cover;
+  object-position: center 44%;
 }
 
-/* ---------- 事業 ---------- */
+.caption {
+  margin: 12px 0 0;
+  font-family: var(--font-sans);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+  color: var(--text-note);
+}
+
+/* 事業内容：2列は同じ構造・同じ密度で対称にする（どちらの事業も上位でない） */
+.business {
+  padding: 88px 0;
+}
+
+.businessHead {
+  margin-bottom: 52px;
+}
 
 .businessGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  margin-top: 40px;
+  grid-template-columns: 1fr 1px 1fr;
+  gap: 56px;
+  align-items: stretch;
 }
 
-.businessCard {
+.businessDivider {
+  background: var(--rule);
+}
+
+.businessCol {
   display: flex;
   flex-direction: column;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 32px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    border-color 0.2s ease;
 }
 
-.businessCard:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-  text-decoration: none;
-  border-color: var(--text-muted);
-}
-
-.businessCard h3 {
-  font-size: 21px;
-  margin-top: 18px;
-}
-
-.businessCard p {
-  color: var(--text-muted);
-  font-size: 15px;
-  margin-top: 12px;
-}
-
-.cardTag {
-  display: inline-flex;
-  align-items: center;
-  align-self: flex-start;
-  padding: 5px 12px;
-  border-radius: 999px;
-  font-size: 11px;
-  letter-spacing: 0.12em;
+.businessLabel {
+  font-family: var(--font-en);
+  font-size: 12.5px;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
+  color: var(--gold);
 }
 
-.cardTagHandmade {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
+.businessTitle {
+  margin: 14px 0 0;
+  font-size: 27px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--heading);
 }
 
-.cardTagTech {
-  background: var(--ink-soft);
-  color: var(--ink);
+.businessText {
+  margin: 20px 0 0;
+  font-size: 15.5px;
+  line-height: 2.15;
+  color: var(--text-sub);
 }
 
-.cardServices {
+.businessList {
   list-style: none;
-  margin-top: 22px;
+  margin: 24px 0 0;
+  padding: 0;
   display: grid;
-  gap: 8px;
-  font-size: 14px;
-  color: var(--text-muted);
+  gap: 12px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  color: var(--text-sub);
 }
 
-.cardServices li {
-  padding-left: 16px;
-  position: relative;
+.businessList li {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule-soft);
 }
 
-.cardServices li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.75em;
-  width: 6px;
-  height: 1px;
-  background: var(--text-muted);
+.businessLink {
+  margin-top: auto;
+  padding-top: 26px;
 }
 
-.cardMore {
-  margin-top: 26px;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent);
+/* アクセサリーを買える場所 */
+.shops {
+  padding: 72px 0;
+  background: var(--paper-band);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
-.cardMoreTech {
-  color: var(--ink);
+.shopsHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 32px;
 }
 
-/* ---------- ショップ ---------- */
+.shopsTitle {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--heading);
+}
+
+.shopsNote {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--text-note);
+}
 
 .shopGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 32px;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 28px;
 }
 
 .shopCard {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 22px 24px;
-  transition: border-color 0.2s ease;
-}
-
-.shopCardPrimary {
-  border-color: var(--accent);
-}
-
-.shopCardPrimary .shopName {
-  color: var(--accent-dark);
+  padding: 26px 28px;
+  border: 1px solid var(--rule);
+  background: var(--paper-card);
 }
 
 .shopCard:hover {
-  border-color: var(--accent);
-  text-decoration: none;
+  background: #fffefb;
+}
+
+.shopCardPrimary {
+  border-color: var(--gold);
 }
 
 .shopName {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-.shopNote {
-  font-size: 13px;
-  color: var(--text-muted);
+.shopNamePrimary {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--brown);
 }
 
-/* ---------- 会社情報の抜粋 ---------- */
+.shopDesc {
+  font-family: var(--font-sans);
+  font-size: 12.5px;
+  color: var(--text-note);
+}
 
-.aboutRow {
+/* 会社概要（要約） */
+.company {
+  padding: 88px 0;
+}
+
+.companyGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 72px;
   align-items: start;
 }
 
-.factList {
-  display: grid;
-  gap: 0;
-  margin-top: 8px;
+.companyText {
+  margin: 20px 0 0;
+  font-size: 15.5px;
+  line-height: 2.15;
+  color: var(--text-sub);
 }
 
-.factRow {
-  display: grid;
-  grid-template-columns: 108px 1fr;
-  gap: 16px;
-  padding-block: 14px;
-  border-bottom: 1px solid var(--border);
-  font-size: 15px;
+.companyLink {
+  margin-top: 24px;
 }
 
-.factRow dt {
-  color: var(--text-muted);
-  font-size: 13px;
+.companyList {
+  --def-term: 120px;
 }
 
-.factRow dd {
-  margin: 0;
+.companyList > div {
+  gap: 20px;
+  padding: 15px 0;
 }
 
-/* ---------- CTA ---------- */
-
-.ctaSection {
-  padding-block: 16px 88px;
-}
-
-.cta {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 48px;
-  text-align: center;
-}
-
-.cta h2 {
-  font-size: clamp(21px, 3vw, 26px);
-}
-
-.cta p {
-  color: var(--text-muted);
-  margin: 14px auto 28px;
-  max-width: 34em;
-}
-
-@media (max-width: 900px) {
-  .heroInner,
-  .aboutRow {
+@media (max-width: 899px) {
+  .businessGrid {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 0;
   }
 
-  .businessGrid,
+  .businessDivider {
+    display: none;
+  }
+
+  .businessCol + .businessCol {
+    margin-top: 48px;
+    padding-top: 48px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .shopGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .companyGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 599px) {
+  .hero {
+    padding-top: 56px;
+  }
+
+  .heroTitle {
+    font-size: 26px;
+  }
+
+  .heroLead {
+    font-size: 15px;
+  }
+
+  /* 低い帯は横長画面でのみ成立するため、スマートフォンでは 4/3 に */
+  .photoWide {
+    aspect-ratio: 4 / 3;
+  }
+
+  .business,
+  .company {
+    padding: 64px 0;
+  }
+
+  .shops {
+    padding: 56px 0;
+  }
+
   .shopGrid {
     grid-template-columns: 1fr;
-  }
-
-  .cta {
-    padding: 36px 24px;
-  }
-
-  .ctaSection {
-    padding-block: 8px 60px;
-  }
-
-  .shopCard {
-    flex-direction: column;
-    gap: 6px;
   }
 }

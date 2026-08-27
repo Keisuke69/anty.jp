@@ -1,24 +1,45 @@
 ---
 import styles from "./Header.module.css";
-import { nav, site } from "../site-config";
+import { nav } from "../site-config";
+
+// 現在ページに該当するナビ項目を濃い茶で示す（事業詳細ページでは「事業内容」）
+const pathname = Astro.url.pathname;
+const activeLabel = pathname.startsWith("/business")
+  ? "事業内容"
+  : pathname.startsWith("/about")
+    ? "会社概要"
+    : pathname.startsWith("/contact")
+      ? "お問い合わせ"
+      : pathname === "/"
+        ? "TOP"
+        : null;
 ---
 
 <header class={styles.header}>
-  <div class={`container ${styles.inner}`}>
-    <a href="/" class={styles.logo}>
-      Anty
-      <span>{site.nameEn}</span>
-    </a>
-    <nav class={styles.nav} aria-label="メインナビゲーション">
-      <ul>
-        {
-          nav.map((item) => (
-            <li>
-              <a href={item.href}>{item.label}</a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
+  <a href="/" aria-label="株式会社Anty トップへ">
+    <img
+      class={styles.logo}
+      src="/images/logo-anty.png"
+      alt="株式会社Anty"
+      width="1032"
+      height="466"
+    />
+  </a>
+  <nav class={styles.nav} aria-label="メインナビゲーション">
+    <ul>
+      {
+        nav.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class={item.label === activeLabel ? styles.active : undefined}
+              aria-current={item.label === activeLabel ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
 </header>

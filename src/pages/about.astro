@@ -1,5 +1,6 @@
 ---
 import Base from "../layouts/Base.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
 import PageHeader from "../components/PageHeader.astro";
 import ContactCta from "../components/ContactCta.astro";
 import styles from "../styles/about.module.css";
@@ -19,33 +20,37 @@ const rows = [
 
 <Base
   title="会社概要"
-  description="株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ハンドメイドアクセサリー事業とITシステム・ソフトウェア開発事業を営んでいます。"
+  description="株式会社Anty（Anty, Inc.）の会社概要。2021年2月設立。ハンドメイドアクセサリー事業とテクノロジー事業を横浜・桜木町から営んでいます。"
   path="/about/"
 >
+  <Breadcrumb items={[{ label: "TOP", href: "/" }, { label: "会社概要" }]} />
+
   <PageHeader
-    eyebrow="About us"
+    eyebrow="Company"
     title="会社概要"
-    lead="2021年2月に設立しました。ハンドメイドアクセサリーの製造・販売と、ITシステム・ソフトウェアの開発を行っています。"
+    lead="2021年に設立。横浜・桜木町の小さな机の上から、装身具と仕組みの両方をつくっています。"
   />
 
-  <section class="section">
+  <section class={styles.profile}>
     <div class="container">
-      <dl class={styles.profile}>
+      <dl class={`defList ${styles.profileList}`}>
         {
           rows.map((row) => (
-            <div class={styles.row}>
+            <div>
               <dt>{row.term}</dt>
               <dd>{row.value}</dd>
             </div>
           ))
         }
-        <div class={styles.row}>
+        <div>
           <dt>お問い合わせ</dt>
           <dd>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a class={styles.mailLink} href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
           </dd>
         </div>
-        <div class={styles.row}>
+        <div>
           <dt>事業内容</dt>
           <dd>
             <ul class={styles.purposeList}>
@@ -57,19 +62,25 @@ const rows = [
     </div>
   </section>
 
-  <section class="section section--alt">
+  <section class={styles.business}>
     <div class="container">
-      <span class="eyebrow">Business</span>
-      <h2 class="sectionTitle">事業紹介</h2>
-      <div class={styles.businessLinks}>
-        <a href="/business/handmade/">
-          <strong>ハンドメイドアクセサリー事業 →</strong>
-          <span>アンティーク風のアクセサリーを、企画から製作、販売まで。</span>
+      <div class={`sectionHead ${styles.businessHead}`}>
+        <span class="eyebrow">Business</span>
+        <h2 class="sectionTitle">事業紹介</h2>
+      </div>
+      <div class={styles.businessGrid}>
+        <a class={styles.businessCard} href="/business/accessory/">
+          <span class={styles.businessLabel}>Handmade accessory</span>
+          <strong class={styles.businessName}>ハンドメイドアクセサリー事業 →</strong>
+          <span class={styles.businessDesc}>
+            アンティーク調のアクセサリーを、企画から製作、販売まで。
+          </span>
         </a>
-        <a href="/business/technology/">
-          <strong>ITシステム・ソフトウェア開発事業 →</strong>
-          <span>
-            コンサルティング、開発、開発支援。企画段階からのご相談も承ります。
+        <a class={styles.businessCard} href="/business/technology/">
+          <span class={styles.businessLabel}>Technology</span>
+          <strong class={styles.businessName}>テクノロジー事業 →</strong>
+          <span class={styles.businessDesc}>
+            技術顧問・アドバイザリーを中心に、コンサルティング、開発、開発支援。
           </span>
         </a>
       </div>
@@ -77,6 +88,7 @@ const rows = [
   </section>
 
   <ContactCta
+    eyebrow="Contact"
     title="お問い合わせ"
     text="事業に関するご相談、お取引の確認などはこちらから。"
   />

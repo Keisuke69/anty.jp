@@ -1,82 +1,57 @@
 .header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(251, 248, 244, 0.88);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-}
-
-.inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  min-height: 68px;
+  padding-top: 44px;
 }
 
 .logo {
-  font-family: var(--font-serif);
-  font-size: 24px;
-  letter-spacing: 0.06em;
-  color: var(--text);
-}
-
-.logo:hover {
-  text-decoration: none;
-  color: var(--accent);
-}
-
-.logo span {
   display: block;
-  font-family: var(--font-sans);
-  font-size: 10px;
-  letter-spacing: 0.16em;
-  color: var(--text-muted);
-  margin-top: -4px;
+  height: 82px;
+  width: auto;
+}
+
+.nav {
+  width: 100%;
+  margin-top: 34px;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 
 .nav ul {
   display: flex;
   align-items: center;
-  gap: 26px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 64px;
   list-style: none;
+  margin: 0;
+  padding: 18px;
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  letter-spacing: 0.1em;
+  color: var(--text-sub);
 }
 
-.nav a {
-  font-size: 14px;
-  color: var(--text-muted);
+.active {
+  color: var(--brown);
 }
 
-.nav a:hover {
-  color: var(--accent);
-}
-
-@media (max-width: 860px) {
-  /* 高さを取るヘッダーが画面上部を占有し続けないよう、狭い画面では固定しない */
-  .header {
-    position: static;
-  }
-
-  .inner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-    padding-block: 12px;
-  }
-
-  .nav {
-    width: 100%;
-  }
-
+@media (max-width: 899px) {
   .nav ul {
-    flex-wrap: wrap;
-    gap: 6px 16px;
-    padding-bottom: 4px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 599px) {
+  .logo {
+    height: 56px;
   }
 
-  .nav a {
-    font-size: 13px;
-    white-space: nowrap;
+  /* ナビは4項目なので gap を詰めて1行維持（ハンバーガー不要） */
+  .nav ul {
+    gap: 24px;
+    padding: 16px 12px;
+    font-size: 12.5px;
   }
 }
